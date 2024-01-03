@@ -1,44 +1,56 @@
-##Document Processing and Analysis API
-#Description
-This project is a Flask-based backend system designed for processing, storing, and analyzing textual documents. It provides a RESTful API for uploading documents, storing their metadata in a MySQL database, and analyzing text data. The system tokenizes the text, identifies unique words, and stores word occurrences with detailed context (sentence, paragraph, and position).
+# Document Processing and Analysis API
 
-#Features
-REST API for document upload and processing.
-Integration with MySQL for data storage and retrieval.
-Text analysis including tokenization and word occurrence tracking.
-Advanced queries for word statistics and frequent word pair identification.
-#Installation
-#Prerequisites
-Python 3.x
-Flask
-MySQL
-NLTK (Natural Language Toolkit)
-#Setup
-Clone the repository:
+## Description
 
-git clone https://github.com/yourusername/yourrepository.git
-#Navigate to the project directory:
+This project is a Flask-based backend system designed for processing, storing, and analyzing textual documents. It features a RESTful API for uploading documents and storing their metadata in a MySQL database. The system offers functionalities for text analysis, including tokenization and tracking word occurrences, providing insights into document content.
 
+## Features
 
-#Install required Python packages:
-pip install flask mysql-connector-python nltk
-#Download NLTK data:
+- **REST API**: Facilitates document upload and processing.
+- **MySQL Database Integration**: Manages data storage and retrieval.
+- **Text Analysis**: Implements tokenization, tracking word occurrences.
+- **Word Statistics**: Generates statistics and identifies frequent word pairs.
 
-import nltk
-nltk.download('punkt')
-Usage
-#To start the Flask server:
+## Installation
 
-python api.py
-Use the /upload endpoint to upload documents. The API expects multipart/form-data with file and metadata (name, location, author, date, source).
+### Prerequisites
 
-#Database Configuration
-The database.py script handles database configuration, including creating tables and establishing connections. Ensure MySQL server is running and modify credentials in database.py as needed.
+- Python 3.x
+- Flask
+- MySQL
+- NLTK (Natural Language Toolkit)
 
-#API Reference
-POST /upload: Endpoint for uploading documents and processing text.
-#Contributing
-Contributions to the project are welcome. Please follow standard coding practices and submit pull requests for any proposed changes.
+### Setup Instructions
 
-#License
-This project is open-source and available under the MIT License.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/yourrepository.git
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   pip install flask mysql-connector-python nltk
+   ```
+
+3. **Set Up MySQL Database**:
+   - Ensure MySQL is installed and running.
+   - Create a database and user with appropriate privileges.
+
+4. **Run the Flask Application**:
+   ```bash
+   python api.py
+   ```
+
+## Usage
+
+1. **Uploading Documents**: Send a POST request to `/upload` with the document and metadata.
+2. **Processing Text**: The API processes the uploaded document, tokenizing the text and storing word occurrences.
+3. **Retrieving Data**: Use the API or direct database queries to analyze the text data.
+
+## Contributing
+
+Contributions are welcome! Please read the contributing guide for more information.
+
+## License
+
+[MIT License](LICENSE)
