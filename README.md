@@ -1,4 +1,4 @@
-# Document Processing and Analysis API
+# Concordance Text Processing and Analysis API
 
 ## Description
 
