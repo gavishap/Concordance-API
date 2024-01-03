@@ -1,0 +1,738 @@
+here is the main:
+#include "tinyobjloader/tiny_obj_loader.h"
+#include "voxelizer/voxelizer.h"
+
+#include "astar.h"
+
+int main() {
+
+  // 1. Load model
+  tinyobj::attrib_t attrib;
+  std::vector<tinyobj::shape_t> shapes;
+  std::vector<tinyobj::material_t> materials;
+  std::string warn, err;
+
+  bool ret = tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, "path/to/model.obj");
+
+  if (!warn.empty()) {
+    std::cout << warn << std::endl;
+  }
+
+  if (!err.empty()) {
+    std::cerr << err << std::endl;
+    exit(1);
+  }
+  
+  // 2. Voxelize
+  const double voxel_size = 1.0;
+  Voxelizer voxelizer(voxel_size);
+  VoxelGrid voxel_grid = voxelizer.Voxelize(shapes);
+
+  // Create grid
+  std::vector<std::vector<std::vector<int>>> grid(voxel_grid.GetGridSize().x, 
+                                                 std::vector<std::vector<int>>(voxel_grid.GetGridSize().y, 
+                                                 std::vector<int>(voxel_grid.GetGridSize().z, 0)));
+
+  // Mark occupied voxels
+  const auto& voxel_data = voxel_grid.GetRawData();
+  for (size_t i = 0; i < voxel_data.size(); i++) {
+    if (voxel_data[i] == 1) {
+      grid[i % grid.size()][(i / grid.size()) % grid[0].size()][i / (grid.size() * grid[0].size())] = 1;
+    }
+  }
+
+  // Define start and end nodes
+  Node start(0, 0, 0);
+  Node end(10, 10, 10); 
+
+  // Run A*
+  auto path = astar(grid, start, end);
+
+  // Print path
+  for (auto [x, y, z] : path) {
+    std::cout << x << " " << y << " " << z << std::endl;
+  }
+
+}
+
+#include <thread>
+#include <future>
+#include <queue>
+#include <iostream>
+#include <pangolin/pangolin.h>
+#include <pangolin/geometry/geometry.h>
+#include <pangolin/gl/glsl.h>
+#include <pangolin/gl/glvbo.h>
+
+#include <pangolin/utils/file_utils.h>
+#include <pangolin/geometry/glgeometry.h>
+
+#include "include/run_model/TextureShader.h"
+#include "include/Auxiliary.h"
+
+
+#include "tinyobjloader/tiny_obj_loader.h"
+#include "voxelizer/voxelizer.h"
+
+#include "astar.h"
+#include <Eigen/SVD>
+#include <Eigen/Geometry>
+#include <vector>
+#include <queue>
+#include <opencv2/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/calib3d.hpp>
+#include <algorithm>
+#include <cmath>
+class node
+{ 
+    public : 
+        int x,y,z,f,g,h ; 
+        node* parent ;
+
+        node(int x,int y,int z,node* p=nullptr): x(x) ,y(y), z(z),g(0),h(0),f(0),parent(p); 
+
+       bool operator==(const node& other) const{ 
+        return x==other.x && y==other.y && z==other.z ; 
+       }
+
+       bool operator<(const node& other )const 
+       {
+        return f>other.f ; 
+       }
+}
+
+       double diag_distance(int x1,int y1,int z1,int x2,int y2,int z2)
+       {
+            const double d = 1.0 ; 
+            const double d2 = 1.4 ; 
+
+            const double d3 = 1.7 ;
+            int dx=abs(x1-x2);
+            int dy=abs(y1-y2);
+            int dz=abs(z1-z2);
+            int diag_step = std::min(dx,dy,dz);
+
+            dx-=diag_step;
+            dy-=diag_step;
+            dz-=diag_step;
+
+            return d3 diag_step + d2(dx+dy+dz) + d*std::max(dx,dy,dz) ; 
+
+
+       }
+    std::vector<node> get_nieghpors(const node& node)
+    {
+        std::vector<node> nieghpors ;
+        for(int dx=-1 ; dx<=1 ;dx++ )
+        {
+             for(int dy=-1 ; dy<=1 ;dy++ )
+            {
+                for(int dz=-1 ; dz<=1 ;dz++ )
+                {
+                        if (dx==0 && dy== 0 && dz== 0) continue;
+
+                        nieghpors.emplace_back(node.x+dx ,node.y+dy ,node.z+dz);
+                        
+                }
+            }
+
+        }
+
+        return nieghpors; 
+    }
+
+    std::vector<std::tuple<int,int,int>> a_star(const std::vector<std::vector<std::vector<int>>>& grid,const node& start ,const node& end)
+    {
+            std::priority_queue<node> open_list ; 
+            std::vector<node> close_list ; 
+            open_list.push(start);
+            while (!open_list.empty())
+            {
+
+                node current = open_list.top() ; 
+                open_list.pop(); 
+                if (current == end)
+                {
+                    std::vector<std::tuple<int,int,int>>   path    ;
+                    while (current.parent)
+                    {
+                        path.push_back({current.x,current.y,current.z });
+                        current = *current.parent ; 
+
+                    }    
+                    std::reverse(path.begin(),path.end());
+                    return path ;      
+                }
+                close_list.push_back(current);
+
+                // Explore neighbors.
+                for (Node& neighbor : get_neighbors(current)) {
+                    if (neighbor.x < 0 || neighbor.y < 0 || neighbor.z < 0 || 
+                        neighbor.x >= grid.size() || neighbor.y >= grid[0].size() || neighbor.z >= grid[0][0].size() ||
+                        grid[neighbor.x][neighbor.y][neighbor.z] == 1) {
+                        continue;
+                    }
+
+                    // If the neighbor has already been evaluated, skip.
+                    if (std::find(closed_list.begin(), closed_list.end(), neighbor) != closed_list.end()) {
+                        continue;
+                    }
+
+                    // Compute costs.
+                    neighbor.g = current.g + 1;
+                    neighbor.h = diagonal_distance_3d(neighbor.x, neighbor.y, neighbor.z, end.x, end.y, end.z); 
+                    neighbor.f = neighbor.g + neighbor.h;
+                    neighbor.parent = new Node(current.x, current.y, current.z, current.parent);
+                    
+                    // Add the neighbor for evaluation.
+                    open_list.push(neighbor);
+                }
+    }
+
+  
+
+    // Return an empty path if no path is found.
+        return{};
+        }
+
+
+
+int main()
+{
+ // 1. Load model
+  tinyobj::attrib_t attrib;
+  std::vector<tinyobj::shape_t> shapes;
+  std::vector<tinyobj::material_t> materials;
+  std::string warn, err;
+
+  bool ret = tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, "/home/sami/Downloads/all-data/aaa/untitled.obj");
+
+  if (!warn.empty()) {
+    std::cout << warn << std::endl;
+  }
+
+  if (!err.empty()) {
+    std::cerr << err << std::endl;
+    exit(1);
+  }
+  
+  // 2. Voxelize
+  const double voxel_size = 1.0;
+  Voxelizer voxelizer(voxel_size);
+  VoxelGrid voxel_grid = voxelizer.Voxelize(shapes);
+
+  // Create grid
+  std::vector<std::vector<std::vector<int>>> grid(voxel_grid.GetGridSize().x, 
+                                                 std::vector<std::vector<int>>(voxel_grid.GetGridSize().y, 
+                                                 std::vector<int>(voxel_grid.GetGridSize().z, 0)));
+
+  // Mark occupied voxels
+  const auto& voxel_data = voxel_grid.GetRawData();
+  for (size_t i = 0; i < voxel_data.size(); i++) {
+    if (voxel_data[i] == 1) {
+      grid[i % grid.size()][(i / grid.size()) % grid[0].size()][i / (grid.size() * grid[0].size())] = 1;
+    }
+  }
+
+  // Define start and end nodes
+  Node start(0, 0, 0);
+  Node end(10, 10, 10); 
+
+  // Run A*
+  auto path = astar(grid, start, end);
+
+  // Print path
+  for (auto [x, y, z] : path) {
+    std::cout << x << " " << y << " " << z << std::endl;
+  }
+
+here is the A* code:
+#include <thread>
+#include <future>
+#include <queue>
+#include <iostream>
+#include <pangolin/pangolin.h>
+#include <pangolin/geometry/geometry.h>
+#include <pangolin/gl/glsl.h>
+#include <pangolin/gl/glvbo.h>
+
+#include <pangolin/utils/file_utils.h>
+#include <pangolin/geometry/glgeometry.h>
+
+#include "include/run_model/TextureShader.h"
+#include "include/Auxiliary.h"
+
+
+#include "tinyobjloader/tiny_obj_loader.h"
+#include "voxelizer/voxelizer.h"
+
+#include "astar.h"
+#include <Eigen/SVD>
+#include <Eigen/Geometry>
+#include <vector>
+#include <queue>
+#include <opencv2/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/calib3d.hpp>
+#include <algorithm>
+#include <cmath>
+class node
+{ 
+    public : 
+        int x,y,z,f,g,h ; 
+        node* parent ;
+
+        node(int x,int y,int z,node* p=nullptr): x(x) ,y(y), z(z),g(0),h(0),f(0),parent(p); 
+
+       bool operator==(const node& other) const{ 
+        return x==other.x && y==other.y && z==other.z ; 
+       }
+
+       bool operator<(const node& other )const 
+       {
+        return f>other.f ; 
+       }
+}
+
+       double diag_distance(int x1,int y1,int z1,int x2,int y2,int z2)
+       {
+            const double d = 1.0 ; 
+            const double d2 = 1.4 ; 
+
+            const double d3 = 1.7 ;
+            int dx=abs(x1-x2);
+            int dy=abs(y1-y2);
+            int dz=abs(z1-z2);
+            int diag_step = std::min(dx,dy,dz);
+
+            dx-=diag_step;
+            dy-=diag_step;
+            dz-=diag_step;
+
+            return d3 diag_step + d2(dx+dy+dz) + d*std::max(dx,dy,dz) ; 
+
+
+       }
+    std::vector<node> get_nieghpors(const node& node)
+    {
+        std::vector<node> nieghpors ;
+        for(int dx=-1 ; dx<=1 ;dx++ )
+        {
+             for(int dy=-1 ; dy<=1 ;dy++ )
+            {
+                for(int dz=-1 ; dz<=1 ;dz++ )
+                {
+                        if (dx==0 && dy== 0 && dz== 0) continue;
+
+                        nieghpors.emplace_back(node.x+dx ,node.y+dy ,node.z+dz);
+                        
+                }
+            }
+
+        }
+
+        return nieghpors; 
+    }
+
+    std::vector<std::tuple<int,int,int>> a_star(const std::vector<std::vector<std::vector<int>>>& grid,const node& start ,const node& end)
+    {
+            std::priority_queue<node> open_list ; 
+            std::vector<node> close_list ; 
+            open_list.push(start);
+            while (!open_list.empty())
+            {
+
+                node current = open_list.top() ; 
+                open_list.pop(); 
+                if (current == end)
+                {
+                    std::vector<std::tuple<int,int,int>>   path    ;
+                    while (current.parent)
+                    {
+                        path.push_back({current.x,current.y,current.z });
+                        current = *current.parent ; 
+
+                    }    
+                    std::reverse(path.begin(),path.end());
+                    return path ;      
+                }
+                close_list.push_back(current);
+
+                // Explore neighbors.
+                for (Node& neighbor : get_neighbors(current)) {
+                    if (neighbor.x < 0 || neighbor.y < 0 || neighbor.z < 0 || 
+                        neighbor.x >= grid.size() || neighbor.y >= grid[0].size() || neighbor.z >= grid[0][0].size() ||
+                        grid[neighbor.x][neighbor.y][neighbor.z] == 1) {
+                        continue;
+                    }
+
+                    // If the neighbor has already been evaluated, skip.
+                    if (std::find(closed_list.begin(), closed_list.end(), neighbor) != closed_list.end()) {
+                        continue;
+                    }
+
+                    // Compute costs.
+                    neighbor.g = current.g + 1;
+                    neighbor.h = diagonal_distance_3d(neighbor.x, neighbor.y, neighbor.z, end.x, end.y, end.z); 
+                    neighbor.f = neighbor.g + neighbor.h;
+                    neighbor.parent = new Node(current.x, current.y, current.z, current.parent);
+                    
+                    // Add the neighbor for evaluation.
+                    open_list.push(neighbor);
+                }
+    }
+
+  
+
+    // Return an empty path if no path is found.
+        return{};
+        }
+
+
+
+int main()
+{
+ // 1. Load model
+  tinyobj::attrib_t attrib;
+  std::vector<tinyobj::shape_t> shapes;
+  std::vector<tinyobj::material_t> materials;
+  std::string warn, err;
+
+  bool ret = tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, "/home/sami/Downloads/all-data/aaa/untitled.obj");
+
+  if (!warn.empty()) {
+    std::cout << warn << std::endl;
+  }
+
+  if (!err.empty()) {
+    std::cerr << err << std::endl;
+    exit(1);
+  }
+  
+  // 2. Voxelize
+  const double voxel_size = 1.0;
+  Voxelizer voxelizer(voxel_size);
+  VoxelGrid voxel_grid = voxelizer.Voxelize(shapes);
+
+  // Create grid
+  std::vector<std::vector<std::vector<int>>> grid(voxel_grid.GetGridSize().x, 
+                                                 std::vector<std::vector<int>>(voxel_grid.GetGridSize().y, 
+                                                 std::vector<int>(voxel_grid.GetGridSize().z, 0)));
+
+  // Mark occupied voxels
+  const auto& voxel_data = voxel_grid.GetRawData();
+  for (size_t i = 0; i < voxel_data.size(); i++) {
+    if (voxel_data[i] == 1) {
+      grid[i % grid.size()][(i / grid.size()) % grid[0].size()][i / (grid.size() * grid[0].size())] = 1;
+    }
+  }
+
+  // Define start and end nodes
+  Node start(0, 0, 0);
+  Node end(10, 10, 10); 
+
+  // Run A*
+  auto path = astar(grid, start, end);
+
+  // Print path
+  for (auto [x, y, z] : path) {
+    std::cout << x << " " << y << " " << z << std::endl;
+  }
+
+and heres the code i want to implement the A*, with the grid and voxelizing into:
+#include <thread>
+#include <future>
+#include <queue>
+#include <iostream>
+#include <pangolin/pangolin.h>
+#include <pangolin/geometry/geometry.h>
+#include <pangolin/gl/glsl.h>
+#include <pangolin/gl/glvbo.h>
+
+#include <pangolin/utils/file_utils.h>
+#include <pangolin/geometry/glgeometry.h>
+
+#include "include/run_model/TextureShader.h"
+#include "include/Auxiliary.h"
+
+
+#include <Eigen/SVD>
+#include <Eigen/Geometry>
+
+#include <opencv2/core.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/calib3d.hpp>
+
+
+#define NEAR_PLANE 0.1 
+#define FAR_PLANE 20 
+
+struct Obstacle {
+    Eigen::Vector3f position; // Center of the obstacle
+    float radius;             // Radius of the obstacle
+};
+
+void StraightNavigation(pangolin::OpenGlRenderState& cam, Eigen::Vector3f target, double navigation_speed, pangolin::GlSlProgram& default_prog, const pangolin::GlGeometry& geomToRender)
+{
+    Eigen::Vector3f current_position(
+        cam.GetModelViewMatrix()(0, 3),
+        cam.GetModelViewMatrix()(1, 3),
+        cam.GetModelViewMatrix()(2, 3)
+    );
+
+    Eigen::Vector3f direction = (target - current_position).normalized();
+
+    float distance_to_target = (target - current_position).norm();
+
+    while (distance_to_target > navigation_speed) {
+        // Update the camera position
+        default_prog.Bind();
+        default_prog.SetUniform("KT_cw", cam.GetProjectionMatrix() * cam.GetModelViewMatrix());
+        pangolin::GlDraw(default_prog, geomToRender, nullptr);
+        default_prog.Unbind();
+
+        current_position += direction * navigation_speed;
+        cam.SetModelViewMatrix(
+            Eigen::Affine3f(Eigen::Translation3f(current_position))
+        );
+
+        // Update the distance to the target and render the scene
+        distance_to_target = (target - current_position).norm();
+
+        //cam.Apply(); 
+        pangolin::FinishFrame();
+    }
+
+    // Calculate the final translation step to precisely reach the target
+    Eigen::Vector3f final_translation = direction * distance_to_target;
+    current_position += final_translation;
+    cam.SetModelViewMatrix(
+        Eigen::Affine3f(Eigen::Translation3f(current_position))
+    );
+
+    // Render the final scene
+    pangolin::FinishFrame();
+}
+
+
+void TargetPointStraight(pangolin::OpenGlRenderState& cam, Eigen::Vector3f target, double navigation_speed, pangolin::GlSlProgram& default_prog, const pangolin::GlGeometry& geomToRender)
+{
+    Eigen::Vector3f current_position(
+        cam.GetModelViewMatrix()(0, 3),
+        cam.GetModelViewMatrix()(1, 3),
+        cam.GetModelViewMatrix()(2, 3)
+    );
+
+    Eigen::Vector3f target_direction = (target - current_position).normalized();
+    Eigen::Vector3f up(0.0f, 0.0f, 1.0f);  // Assuming up direction is along z-axis
+    Eigen::Vector3f right = target_direction.cross(up).normalized();
+    Eigen::Vector3f new_up = right.cross(target_direction).normalized();
+
+    Eigen::Matrix4f new_view_matrix;
+    new_view_matrix << right.x(), right.y(), right.z(), 0,
+        new_up.x(), new_up.y(), new_up.z(), 0,
+        -target_direction.x(), -target_direction.y(), -target_direction.z(), 0,
+        0, 0, 0, 1;
+
+    // Update the camera view matrix to point towards the target direction
+    cam.SetModelViewMatrix(new_view_matrix);
+
+    // Call the function to navigate towards the target
+    StraightNavigation(cam, target, navigation_speed, default_prog, geomToRender);
+}
+
+
+
+
+bool CheckForCollisions(const Eigen::Vector3f& current_position, const Eigen::Vector3f& direction, float navigation_speed, const std::vector<Obstacle>& obstacles) {
+    Eigen::Vector3f next_position = current_position + direction * navigation_speed;
+
+    for (const Obstacle& obstacle : obstacles) {
+        // Calculate the distance between the camera's next position and the obstacle
+        float distance = (next_position - obstacle.position).norm();
+
+        // Check for collision by comparing the distance with the sum of radii
+        if (distance < obstacle.radius) {
+            return true; // Collision detected
+        }
+    }
+
+    return false; // No collision detected
+}
+
+Eigen::Vector3f AdjustDirectionToAvoidCollision(const Eigen::Vector3f& current_position, const Eigen::Vector3f& original_direction, const std::vector<Obstacle>& obstacles) {
+    Eigen::Vector3f adjusted_direction = original_direction;
+
+    for (const Obstacle& obstacle : obstacles) {
+        Eigen::Vector3f obstacle_to_camera = current_position - obstacle.position;
+        float distance_to_obstacle = obstacle_to_camera.norm();
+
+        if (distance_to_obstacle < obstacle.radius * 2.0) {
+            // Calculate the avoidance direction away from the obstacle
+            Eigen::Vector3f avoidance_direction = obstacle_to_camera.normalized();
+
+            // Adjust the direction by adding a component away from the obstacle
+            adjusted_direction += avoidance_direction * (obstacle.radius * 2.0 - distance_to_obstacle);
+        }
+    }
+
+    return adjusted_direction.normalized();
+}
+
+//void  straight_navigation_f(pangolin::OpenGlRenderState& cam, double value) {// 
+  //  auto camMatrix = pangolin::ToEigen<double>(cam.GetModelViewMatrix());
+ //   camMatrix(2, 3) += value;
+ //   cam.SetModelViewMatrix(camMatrix);
+
+void straight_navigation_f(pangolin::OpenGlRenderState& cam, double value, const std::vector<Obstacle>& obstacles) {
+    Eigen::Vector3f current_position(
+        cam.GetModelViewMatrix()(0, 3),
+        cam.GetModelViewMatrix()(1, 3),
+        cam.GetModelViewMatrix()(2, 3)
+    );
+
+    Eigen::Vector3f direction = Eigen::Vector3f::UnitZ(); // Default movement direction
+
+    // Check for collisions
+    bool has_collision = CheckForCollisions(current_position, direction, value, obstacles);
+
+    if (has_collision) {
+        // Adjust the direction to avoid collision
+        direction = AdjustDirectionToAvoidCollision(current_position, direction, obstacles);
+    }
+
+    Eigen::Vector3f new_position = current_position + direction * value;
+    auto camMatrix = pangolin::ToEigen<double>(cam.GetModelViewMatrix());
+    camMatrix(0, 3) = new_position.x();
+    camMatrix(1, 3) = new_position.y();
+    camMatrix(2, 3) = new_position.z();
+    cam.SetModelViewMatrix(camMatrix);
+}
+
+
+int main()
+{
+
+    std::string settingPath = Auxiliary::GetGeneralSettingsPath();
+    std::ifstream programData(settingPath); // inpute file for reading the data from JSON file 
+    nlohmann::json data;
+    programData >> data;
+    programData.close();   // Closing file read 
+
+
+    double navigation_speed = 0.1;
+    std::string configPath = data["DroneYamlPathSlam"];//retrieves the path to another configuration file .
+    cv::FileStorage fSettings(configPath, cv::FileStorage::READ);//opens the YAML configuration file for reading.
+
+    float fx = fSettings["Camera.fx"];
+    float fy = fSettings["Camera.fy"];
+    float cx = fSettings["Camera.cx"];  ///put the values from the DroneYamlPathSlam by using the read file
+    float cy = fSettings["Camera.cy"];
+    float viewpointX = fSettings["RunModel.ViewpointX"];
+    float viewpointY = fSettings["RunModel.ViewpointY"];
+    float viewpointZ = fSettings["RunModel.ViewpointZ"];
+
+    Eigen::Matrix3d K; // declares an Eigen matrix (K) to store the camera intrinsic matrix.
+
+    K << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0;  //t initializes the intrinsic matrix K using the extracted fx, fy, cx, and cy values.
+    cv::Mat K_cv = (cv::Mat_<float>(3, 3) << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0); //This line creates a corresponding OpenCV matrix (K_cv) using the same camera intrinsic parameters.
+
+
+    bool straight_navigation = false;
+    bool go_toTarget = false;
+
+
+Eigen::Vector3f wanted_point(5.0, 2.0, -1.0);
+
+    // Create Window for rendering
+    pangolin::CreateWindowAndBind("Main", 640, 480);
+    glEnable(GL_DEPTH_TEST);
+
+
+
+    // Define Projection and initial ModelView matrix
+   pangolin::OpenGlRenderState cam(
+    pangolin::ProjectionMatrix(640, 480, K(0, 0), K(1, 1), K(0, 2), K(1, 2), NEAR_PLANE, FAR_PLANE),
+    pangolin::ModelViewLookAt(0, 0, 0, 0, 0, 1, 0, -1, 0) // Updated camera parameters
+);
+
+
+
+
+    pangolin::Handler3D handler(cam);
+    pangolin::View& d_cam = pangolin::CreateDisplay()
+        .SetBounds(0.0, 1.0, 0.0, 1.0, ((float)640 / (float)480))
+        .SetHandler(&handler);
+
+    std::string model_path = data["modelPath"];  // load the model path from the data  
+    const pangolin::Geometry geom_to_load = pangolin::LoadGeometry(model_path); // creat object that represent 3D geometry data by using LoadGeometry which load 3D geometry model from the file path 
+    auto aabb = pangolin::GetAxisAlignedBox(geom_to_load);     // load the computed axis-aligned bounding box of the 3D geometry model to aabb
+    Eigen::AlignedBox3f total_aabb;
+    total_aabb.extend(aabb);
+
+
+    const pangolin::GlGeometry geomToRender = pangolin::ToGlGeometry(geom_to_load);
+    // Render tree for holding object position
+    pangolin::GlSlProgram default_prog;
+    auto LoadProgram = [&]() {
+        default_prog.ClearShaders();
+        default_prog.AddShader(pangolin::GlSlAnnotatedShader, pangolin::shader);
+        default_prog.Link();
+    };
+    LoadProgram();
+
+    pangolin::RegisterKeyPressCallback('w', [&]() {straight_navigation = !straight_navigation; });
+    pangolin::RegisterKeyPressCallback('p', [&]() {go_toTarget = !go_toTarget; });
+
+
+    Eigen::Vector3d Pick_w = handler.Selected_P_w();//: This line initializes the Eigen::Vector3d variable Pick_w with the current 3D position that is selected using the mouse in the visualization window.
+    std::vector<Eigen::Vector3d> Picks_w;// creates an empty vector named Picks_w to store selected 3D positions.
+
+    while (!pangolin::ShouldQuit()) {
+        
+        // Clear the screen and activate the camera view
+        if ((handler.Selected_P_w() - Pick_w).norm() > 1E-6) {
+            Pick_w = handler.Selected_P_w();
+            Picks_w.push_back(Pick_w);
+            std::cout << pangolin::FormatString("\"Translation\": [%,%,%]", Pick_w[0], Pick_w[1], Pick_w[2])
+                << std::endl;
+        }
+        
+          
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        if (d_cam.IsShown()) {
+            d_cam.Activate();
+
+
+            default_prog.Bind();
+            default_prog.SetUniform("KT_cw", cam.GetProjectionMatrix() * cam.GetModelViewMatrix());
+            pangolin::GlDraw(default_prog, geomToRender, nullptr);
+            default_prog.Unbind();
+
+
+              
+            if (go_toTarget) {
+	          
+           TargetPointStraight(cam,wanted_point,navigation_speed,default_prog ,geomToRender);
+            go_toTarget = false; // Reset the flag    
+            }
+            else if(straight_navigation)
+            {
+              //  straight_navigation_f(cam,navigation_speed);
+                straight_navigation=false ;
+            }
+
+            cam.Apply(); //applies transformations to the camera
+
+            glDisable(GL_CULL_FACE);
+        }
+        // Update the Pangolin display
+        pangolin::FinishFrame();
+      Eigen::Vector3d camera_position(cam.GetModelViewMatrix()(0, 3),
+                                    cam.GetModelViewMatrix()(1, 3),
+                                    cam.GetModelViewMatrix()(2, 3));
+                             std::cout << "Camera Position: (" << camera_position[0] << ", " << camera_position[1] << ", " << camera_position[2] << ")\n";
+}
+
+}
