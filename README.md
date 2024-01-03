@@ -24,7 +24,7 @@ This project is a Flask-based backend system designed for processing, storing, a
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/yourrepository.git
+   [git clone https://github.com/yourusername/yourrepository.git](https://github.com/gavishap/Concordance-API.git)
    ```
 
 2. **Install Dependencies**:
