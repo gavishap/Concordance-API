@@ -5,14 +5,18 @@ import logging
 import database  # Import the database module
 DATABASE_NAME = "concordance"
 app = Flask(__name__)
+from flask_cors import CORS
 
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+CORS(app)
 
 # Create the upload folder if it doesn't exist
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
     logging.info("Created upload folder")
+
 
 @app.route('/upload', methods=['POST'])
 def upload_document():
@@ -100,7 +104,16 @@ def get_word_context():
     # Call a new function to get word context with filters
     contexts = database.get_word_contexts(connection, word, doc_id, paragraph, sentence, line_number, line_range)
     logging.info(f"Received contexts: {contexts}")
-    return jsonify(contexts)
+    response = []
+    for context in contexts:
+        response.append(
+            {
+                'word': context[0],
+                'document': context[1],
+                'position': context[2],
+                "doc_name": context[3] 
+            })
+    return jsonify(response)
 
 
 
