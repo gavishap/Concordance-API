@@ -529,6 +529,46 @@ def get_word_contexts(connection, word, doc_id=None, paragraph=None, sentence=No
     print("With parameters:", params)
     return read_query(connection, query, params)
 
+
+def get_surrounding_sentences(file_path, sentence_no, para_no):
+    # Read the file and tokenize the text into paragraphs and then sentences
+    with open(file_path, 'r') as file:
+        text = file.read()
+    paragraphs = text.split('\n\n')
+    
+    # Ensure para_no is within the range of paragraphs
+    para_no = max(0, min(para_no - 1, len(paragraphs) - 1))
+    
+    # Tokenize the selected paragraph into sentences
+    sentences = sent_tokenize(paragraphs[para_no])
+    
+    # Adjust sentence_no to be zero-based and within the range of sentences in the paragraph
+    sentence_no = max(0, min(sentence_no - 1, len(sentences) - 1))
+    
+    # Initialize context sentences list
+    context_sentences = []
+    
+    # If the target sentence is the first in its paragraph, include sentences from the previous paragraph
+    if sentence_no == 0 and para_no > 0:
+        previous_paragraph_sentences = sent_tokenize(paragraphs[para_no - 1])
+        context_sentences.extend(previous_paragraph_sentences[-2:])
+    
+    # Calculate the range of sentences to include from the current paragraph
+    start_index = max(0, sentence_no - 2)
+    end_index = min(len(sentences), sentence_no + 3)  # +3 to include the target, and up to 2 sentences after
+    
+    # Extend the context sentences list with sentences from the current paragraph
+    context_sentences.extend(sentences[start_index:end_index])
+    
+    # If the target sentence is the last in its paragraph, include sentences from the next paragraph
+    if sentence_no == len(sentences) - 1 and para_no < len(paragraphs) - 1:
+        next_paragraph_sentences = sent_tokenize(paragraphs[para_no + 1])
+        context_sentences.extend(next_paragraph_sentences[:2])
+    
+    # Join the context sentences to form the context paragraph
+    context_paragraph = ' '.join(context_sentences)
+    
+    return context_paragraph
 # Replace with your MySQL server information
 host = "localhost"
 user = "root"  # It's recommended to use a less privileged user in production

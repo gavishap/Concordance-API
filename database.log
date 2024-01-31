@@ -42374,3 +42374,2032 @@ INFO:root:MySQL Database connection successful
 INFO:root:Filters received: word=and, doc_id=1, paragraph=6, sentence=None, line_number=None, line_range=None
 INFO:root:Received contexts: [('and', 1, 6, 'test'), ('and', 3, 6, 'test')]
 INFO:werkzeug:127.0.0.1 - - [29/Jan/2024 04:26:00] "GET /word-context?word=and&doc_id=1&paragraph=6 HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=None, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('the',), ('quick',), ('brown',), ('fox',), ('jumps',), ('over',), ('lazy',), ('dog',), ('surprised',), ('by',), ('sudden',), ('activity',), ('barked',), ('loudly',), ('it',), ('was',), ('a',), ('beautiful',), ('sunny',), ('day',), ('and',), ('birds',), ('were',), ('singing',), ('melodiously',), ('suddenly',), ('calm',), ('broken',), ('loud',), ('noise',), ('everyone',), ('turned',), ('to',), ('see',), ('what',), ('happening',), ('in',), ('distance',), ('train',), ('whistled',), ('signaling',), ('its',), ('approach',), ('nearby',), ('station',), ('children',), ('playing',), ('park',), ('looked',), ('up',), ('their',), ('faces',), ('filled',), ('with',), ('curiosity',), ('excitement',), ('paragraphs',), ('went',), ('story',), ('continued',), ('small',), ('town',), ('there',), ('library',), ('that',), ('loved',), ('this',), ('just',), ('place',), ('read',), ('books',), ('community',), ('center',), ('where',), ('people',), ('came',), ('together',), ('they',), ('shared',), ('stories',), ('laughed',), ('learned',), ('from',), ('each',), ('other',), ('magical',), ('full',), ('of',), ('wonder',), ('knowledge',), ('as',), ('night',), ('sky',), ('painted',), ('shades',), ('orange',), ('purple',), ('stars',), ('began',), ('twinkle',), ('moon',), ('rose',), ('high',), ('casting',), ('gentle',), ('glow',), ('somewhere',), ('an',), ('owl',), ('hooted',), ('adding',), ('symphony',), ('life',), ('peaceful',), ('bringing',), ('own',), ('simple',), ('joys',), ('challenges',), ('knew',), ('name',), ('strong',), ('sense',), ('worked',), ('celebrating',), ('successes',), ('supporting',), ('through',), ('tough',), ('times',), ('end',), ('brought',), ('accomplishment',), ('contentment',), ('retired',), ('homes',), ('streets',), ('became',), ('quiet',), ('slept',), ('ready',), ('wake',), ('another',), ('possibilities',), ('new',), ('tell',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:01:31] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('barked',), ('beautiful',), ('became',), ('began',), ('birds',), ('books',), ('bringing',), ('broken',), ('brought',), ('brown',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:01:57] "GET /words?doc_id=1&startingLetter=b HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=2, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('broken',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:02:01] "GET /words?doc_id=1&startingLetter=b&paragraph=2 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('barked',), ('beautiful',), ('became',), ('began',), ('birds',), ('books',), ('bringing',), ('broken',), ('brought',), ('brown',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:02:02] "GET /words?doc_id=1&startingLetter=b HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=3, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('books',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:02:04] "GET /words?doc_id=1&startingLetter=b&paragraph=3 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('barked',), ('beautiful',), ('became',), ('began',), ('birds',), ('books',), ('bringing',), ('broken',), ('brought',), ('brown',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:02:05] "GET /words?doc_id=1&startingLetter=b HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=None, sentence=2, line_number=None, line_range=None
+INFO:root:Received words: [('barked',), ('became',), ('began',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:02:07] "GET /words?doc_id=1&startingLetter=b&sentence=2 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('barked',), ('beautiful',), ('became',), ('began',), ('birds',), ('books',), ('bringing',), ('broken',), ('brought',), ('brown',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:07:50] "GET /words?doc_id=1&startingLetter=b HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=1, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('barked',), ('beautiful',), ('birds',), ('brown',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:07:54] "GET /words?doc_id=1&startingLetter=b&paragraph=1 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=b, paragraph=2, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('broken',), ('by',)]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:08:16] "GET /words?doc_id=1&startingLetter=b&paragraph=2 HTTP/1.1" 200 -
+INFO:root:Received word context request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: word=by, doc_id=None, paragraph=2, sentence=None, line_number=None, line_range=None
+INFO:root:Received contexts: [('by', 1, 2, 'test'), ('by', 5, 2, 'test2')]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:08:22] "GET /word-context?word=by&?doc_id=1&startingLetter=b&paragraph=2 HTTP/1.1" 200 -
+INFO:root:Received word context request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: word=by, doc_id=None, paragraph=2, sentence=None, line_number=None, line_range=None
+INFO:root:Received contexts: [('by', 1, 2, 'test'), ('by', 5, 2, 'test2')]
+INFO:werkzeug:127.0.0.1 - - [30/Jan/2024 23:08:22] "GET /word-context?word=by&?doc_id=1&startingLetter=b&paragraph=2 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=None, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('the',), ('quick',), ('brown',), ('fox',), ('jumps',), ('over',), ('lazy',), ('dog',), ('surprised',), ('by',), ('sudden',), ('activity',), ('barked',), ('loudly',), ('it',), ('was',), ('a',), ('beautiful',), ('sunny',), ('day',), ('and',), ('birds',), ('were',), ('singing',), ('melodiously',), ('suddenly',), ('calm',), ('broken',), ('loud',), ('noise',), ('everyone',), ('turned',), ('to',), ('see',), ('what',), ('happening',), ('in',), ('distance',), ('train',), ('whistled',), ('signaling',), ('its',), ('approach',), ('nearby',), ('station',), ('children',), ('playing',), ('park',), ('looked',), ('up',), ('their',), ('faces',), ('filled',), ('with',), ('curiosity',), ('excitement',), ('paragraphs',), ('went',), ('story',), ('continued',), ('small',), ('town',), ('there',), ('library',), ('that',), ('loved',), ('this',), ('just',), ('place',), ('read',), ('books',), ('community',), ('center',), ('where',), ('people',), ('came',), ('together',), ('they',), ('shared',), ('stories',), ('laughed',), ('learned',), ('from',), ('each',), ('other',), ('magical',), ('full',), ('of',), ('wonder',), ('knowledge',), ('as',), ('night',), ('sky',), ('painted',), ('shades',), ('orange',), ('purple',), ('stars',), ('began',), ('twinkle',), ('moon',), ('rose',), ('high',), ('casting',), ('gentle',), ('glow',), ('somewhere',), ('an',), ('owl',), ('hooted',), ('adding',), ('symphony',), ('life',), ('peaceful',), ('bringing',), ('own',), ('simple',), ('joys',), ('challenges',), ('knew',), ('name',), ('strong',), ('sense',), ('worked',), ('celebrating',), ('successes',), ('supporting',), ('through',), ('tough',), ('times',), ('end',), ('brought',), ('accomplishment',), ('contentment',), ('retired',), ('homes',), ('streets',), ('became',), ('quiet',), ('slept',), ('ready',), ('wake',), ('another',), ('possibilities',), ('new',), ('tell',)]
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:04:04] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:Received word context request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: word=surprised, doc_id=None, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received contexts: [('surprised', 2, 1, 'test')]
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:04:05] "GET /word-context?word=surprised&?doc_id=1 HTTP/1.1" 200 -
+INFO:root:Received word context request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: word=surprised, doc_id=None, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received contexts: [('surprised', 2, 1, 'test')]
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:04:05] "GET /word-context?word=surprised&?doc_id=1 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=2, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: []
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:05:41] "GET /words?doc_id=1&startingLetter=2 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=2, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: []
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:05:41] "GET /words?doc_id=1&startingLetter=2 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=None, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('the',), ('quick',), ('brown',), ('fox',), ('jumps',), ('over',), ('lazy',), ('dog',), ('surprised',), ('by',), ('sudden',), ('activity',), ('barked',), ('loudly',), ('it',), ('was',), ('a',), ('beautiful',), ('sunny',), ('day',), ('and',), ('birds',), ('were',), ('singing',), ('melodiously',), ('suddenly',), ('calm',), ('broken',), ('loud',), ('noise',), ('everyone',), ('turned',), ('to',), ('see',), ('what',), ('happening',), ('in',), ('distance',), ('train',), ('whistled',), ('signaling',), ('its',), ('approach',), ('nearby',), ('station',), ('children',), ('playing',), ('park',), ('looked',), ('up',), ('their',), ('faces',), ('filled',), ('with',), ('curiosity',), ('excitement',), ('paragraphs',), ('went',), ('story',), ('continued',), ('small',), ('town',), ('there',), ('library',), ('that',), ('loved',), ('this',), ('just',), ('place',), ('read',), ('books',), ('community',), ('center',), ('where',), ('people',), ('came',), ('together',), ('they',), ('shared',), ('stories',), ('laughed',), ('learned',), ('from',), ('each',), ('other',), ('magical',), ('full',), ('of',), ('wonder',), ('knowledge',), ('as',), ('night',), ('sky',), ('painted',), ('shades',), ('orange',), ('purple',), ('stars',), ('began',), ('twinkle',), ('moon',), ('rose',), ('high',), ('casting',), ('gentle',), ('glow',), ('somewhere',), ('an',), ('owl',), ('hooted',), ('adding',), ('symphony',), ('life',), ('peaceful',), ('bringing',), ('own',), ('simple',), ('joys',), ('challenges',), ('knew',), ('name',), ('strong',), ('sense',), ('worked',), ('celebrating',), ('successes',), ('supporting',), ('through',), ('tough',), ('times',), ('end',), ('brought',), ('accomplishment',), ('contentment',), ('retired',), ('homes',), ('streets',), ('became',), ('quiet',), ('slept',), ('ready',), ('wake',), ('another',), ('possibilities',), ('new',), ('tell',)]
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:05:43] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:Received words request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: doc_id=1, starting_letter=a, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received words: [('a',), ('accomplishment',), ('activity',), ('adding',), ('an',), ('and',), ('another',), ('approach',), ('as',)]
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:05:44] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:Received word context request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: word=approach, doc_id=None, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received contexts: [('approach', 3, 2, 'test')]
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:17:38] "GET /word-context?word=approach&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:Received word context request
+INFO:root:MySQL Database connection successful
+INFO:root:Filters received: word=approach, doc_id=None, paragraph=None, sentence=None, line_number=None, line_range=None
+INFO:root:Received contexts: [('approach', 3, 2, 'test')]
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:17:38] "GET /word-context?word=approach&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:37:52] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:37:56] "GET /words?doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:37:58] "GET /word-context?word=gentle&?doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 00:37:58] "GET /word-context?word=gentle&?doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:03:49] "GET /word-context?word=gentle&?doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:03:49] "GET /word-context?word=gentle&?doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:04:22] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:04:25] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:04:32] "GET /word-context?word=activity&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:04:32] "GET /word-context?word=activity&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:08:15] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:08:18] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:08:21] "GET /word-context?word=activity&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:08:21] "GET /word-context?word=activity&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:09:51] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:09:54] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:09:56] "GET /word-context?word=activity&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:09:56] "GET /word-context?word=activity&?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:11:55] "GET /word-context?word=activity&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:12:08] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:12:11] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:12:13] "GET /word-context?word=activity&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:12:14] "GET /word-context?word=activity&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:13:55] "GET /word-context?word=activity&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:17:43] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:17:45] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:17:58] "GET /word-context?word=accomplishment&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:17:58] "GET /word-context?word=accomplishment&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:18:31] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:18:31] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:18:35] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:18:50] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:20:38] "GET /words?doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:20:41] "GET /word-context?word=gentle&doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:20:41] "GET /word-context?word=gentle&doc_id=1&startingLetter=g HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:22:49] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:22:52] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:22:53] "GET /word-context?word=approach&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:22:53] "GET /word-context?word=approach&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:25:43] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:25:43] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:25:44] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:25:47] "GET /word-context?word=a&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:25:47] "GET /word-context?word=a&doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:31:08] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:31:09] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:31:13] "[35m[1mGET /word-context?word=a&doc_id=1&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:31:13] "[35m[1mGET /word-context?word=a&doc_id=1&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:Received upload request
+INFO:root:Metadata received: {'name': 'test_txt', 'location': 'bla', 'author': 'bla', 'date': '2024-01-31', 'source': 'bla'}
+INFO:root:File saved at uploads\test_txt_.txt
+INFO:root:MySQL Database connection successful
+INFO:root:Connected to the database
+INFO:root:Database 'concordance' created successfully.
+INFO:root:Table Documents created successfully
+INFO:root:Table Words created successfully
+INFO:root:Table WordOccurrences created successfully
+INFO:root:Table WordGroups created successfully
+INFO:root:Table WordGroupAssociations created successfully
+INFO:root:Table Expressions created successfully
+INFO:root:Query successful
+INFO:root:Document ID received: 4
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '4-42-2-3' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '4-1-1-3' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '4-20-1-5' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '4-25-1-16' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '4-13-2-5' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '4-1-1-1' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Processed and stored words from document 4
+INFO:root:Processed the document text and stored word occurrences
+INFO:root:Closed the database connection
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:36:05] "POST /upload HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:37:40] "GET /words?doc_id=4 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:43:20] "GET /words?doc_id=4&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:53:54] "[35m[1mGET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+ERROR:root:Error: '1146 (42S02): Table 'concordance.sentences' doesn't exist'
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:53:55] "[35m[1mGET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:54:11] "GET /words?doc_id=4 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:54:13] "GET /words?doc_id=4&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:54:16] "GET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 08:54:16] "GET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:31:00] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:31:02] "GET /words?doc_id=1&startingLetter=A HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:31:04] "[35m[1mGET /word-context?word=a&doc_id=1&startingLetter=A HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:31:04] "[35m[1mGET /word-context?word=a&doc_id=1&startingLetter=A HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:46:39] "GET /words?doc_id=4 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:46:41] "GET /words?doc_id=4&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:46:48] "[35m[1mGET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 09:46:49] "[35m[1mGET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:00:24] "GET /words?doc_id=4 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:00:26] "GET /words?doc_id=4&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:00:28] "[35m[1mGET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:00:28] "[35m[1mGET /word-context?word=a&doc_id=4&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:Received upload request
+INFO:root:Metadata received: {'name': 'test_txt_', 'location': 'a', 'author': 'a', 'date': '2024-01-31', 'source': 'a'}
+INFO:root:File saved at uploads\test_txt_.txt
+INFO:root:MySQL Database connection successful
+INFO:root:Connected to the database
+INFO:root:Database 'concordance' created successfully.
+INFO:root:Table Documents created successfully
+INFO:root:Table Words created successfully
+INFO:root:Table WordOccurrences created successfully
+INFO:root:Table WordGroups created successfully
+INFO:root:Table WordGroupAssociations created successfully
+INFO:root:Table Expressions created successfully
+INFO:root:Query successful
+INFO:root:Document ID received: 5
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '5-42-2-3' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '5-1-1-3' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '5-20-1-5' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '5-25-1-16' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '5-13-2-5' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '5-1-1-1' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Processed and stored words from document 5
+INFO:root:Processed the document text and stored word occurrences
+INFO:root:Closed the database connection
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:06:25] "POST /upload HTTP/1.1" 200 -
+INFO:root:Received upload request
+INFO:root:Metadata received: {'name': 'hello', 'location': 'a', 'author': 'a', 'date': '2024-01-31', 'source': 'a'}
+INFO:root:File saved at uploads\hello.txt
+INFO:root:MySQL Database connection successful
+INFO:root:Connected to the database
+INFO:root:Database 'concordance' created successfully.
+INFO:root:Table Documents created successfully
+INFO:root:Table Words created successfully
+INFO:root:Table WordOccurrences created successfully
+INFO:root:Table WordGroups created successfully
+INFO:root:Table WordGroupAssociations created successfully
+INFO:root:Table Expressions created successfully
+INFO:root:Query successful
+INFO:root:Document ID received: 6
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '6-42-2-3' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '6-1-1-3' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '6-20-1-5' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '6-25-1-16' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '6-13-2-5' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+ERROR:root:Error: '1062 (23000): Duplicate entry '6-1-1-1' for key 'wordoccurrences.PRIMARY''
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Query successful
+INFO:root:Processed and stored words from document 6
+INFO:root:Processed the document text and stored word occurrences
+INFO:root:Closed the database connection
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:07:16] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:28:21] "GET /words?doc_id=6 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:28:24] "GET /words?doc_id=6&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:28:26] "[35m[1mGET /word-context?word=a&doc_id=6&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:28:26] "[35m[1mGET /word-context?word=a&doc_id=6&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:55:39] "GET /words?doc_id=6 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:55:40] "GET /words?doc_id=6&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:55:42] "GET /word-context?word=a&doc_id=6&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 10:55:42] "GET /word-context?word=a&doc_id=6&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:01:35] "GET /words?doc_id=6 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:01:35] "GET /words?doc_id=6 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:01:37] "GET /words?doc_id=6&startingLetter=t HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:01:38] "GET /word-context?word=the&doc_id=6&startingLetter=t HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:01:39] "GET /word-context?word=the&doc_id=6&startingLetter=t HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:48:04] "GET /words?doc_id=6 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:48:06] "GET /words?doc_id=6&startingLetter=t HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:48:08] "[35m[1mGET /word-context?word=the&doc_id=6&startingLetter=t HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:48:08] "[35m[1mGET /word-context?word=the&doc_id=6&startingLetter=t HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:49:12] "GET /words?doc_id=6 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:49:15] "GET /words?doc_id=6&startingLetter=t HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:49:17] "GET /word-context?word=the&doc_id=6&startingLetter=t HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 11:49:17] "GET /word-context?word=the&doc_id=6&startingLetter=t HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 921-288-661
