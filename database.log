@@ -44403,3 +44403,2392 @@ INFO:werkzeug: * Detected change in 'h:\\Projects\\Avgeny\\Avgeny_concord\\datab
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 921-288-661
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:root:MySQL Database connection successful
+ERROR:api:Exception on /word-context [GET]
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\daniel.n.ndelogakeh\Videos\Mywork\Gavi\Concordance-API\api.py", line 113, in get_word_context
+    context_paragraph = database.get_surrounding_sentences(file_path, sentence_no, para_no)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\daniel.n.ndelogakeh\Videos\Mywork\Gavi\Concordance-API\database.py", line 535, in get_surrounding_sentences
+    with open(file_path, 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'uploads\\test.txt'
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:44:03] "[35m[1mGET /word-context?word=activity&doc_id=1 HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:45:30] "[35m[1mGET /word-context?word=and&doc_id=1 HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:45:59] "GET /word-context?word=and&doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:46:09] "GET /word-context?word=activity&doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:46:20] "GET /word-context?word=activity&doc_id=3 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:47:24] "GET /word-context?word=the&doc_id=3 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:47:27] "GET /word-context?word=the&doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:48:39] "GET /word-context?word=activity&doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:48:43] "GET /word-context?word=and&doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 14:59:52] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:00:06] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:00:17] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:00:18] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:00:19] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:01:16] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:01:18] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:01:20] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:01:21] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:02:04] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:02:24] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:03:12] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:08:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:08:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:08:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:08:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:08:57] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:08:57] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:08:57] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:44] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:44] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:46] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:47] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:49] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:49] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:09:52] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:15:33] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:15:36] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:15:38] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:15:39] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:08] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:14] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:20] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:26] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:37] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:37] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:45] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:47] "GET /words?doc_id=1&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:49] "[35m[1mGET /word-context?word=and&doc_id=1&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:16:50] "[35m[1mGET /word-context?word=and&doc_id=1&startingLetter=a HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:00] "GET /words?startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:00] "GET /words?startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:01] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:05] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:06] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:18] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:22] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:38] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:17:54] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:18:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:18:55] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:18:58] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:19:07] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:19:09] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:19:10] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:19:11] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:19:33] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:19:38] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:20:07] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:20:11] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:20:14] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:20:20] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:20:21] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:20:46] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:20:47] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:21:01] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:21:11] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:21:15] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:21:21] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:21:26] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:21:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:21:40] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:22:17] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:22:18] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:22:25] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:22:29] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:22:30] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:22:37] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:25:41] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:25:41] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:28:52] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:29] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:29] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:30] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:31] "GET /words?startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:31] "GET /words?startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:32] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:34] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:34] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:36] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:36:36] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:37:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:37:38] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:37:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:37:52] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:41:49] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:41:49] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:41:49] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:42:21] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:42:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:42:38] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:42:40] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:42:41] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:04] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:08] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:12] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:21] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:22] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:23] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:28] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:30] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:32] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:43:46] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:44:59] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:07] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:09] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:12] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:18] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:28] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:30] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:41] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:44] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:45] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:51] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:45:58] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:01] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:04] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:12] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:19] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:20] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:40] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:41] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:43] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:43] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 15:46:55] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:02:48] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:02:50] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:02:52] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:02:53] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:26:22] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:26:24] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:26:26] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:26:26] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:27:11] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:27:12] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:27:17] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:27:18] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:27:53] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:27:59] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:28:06] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:28:08] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:28:09] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:28:10] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:29:04] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:30:02] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:30:05] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:30:13] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:30:16] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:30:19] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:30:22] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:49:51] "GET /words?doc_id=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:51:38] "[35m[1mGET /word-context?word=quick&doc_id=1 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:51:38] "[35m[1mGET /word-context?word=quick&doc_id=1 HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:51:56] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:51:58] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:52:00] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 16:52:00] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:32] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:32] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:32] "GET /words?doc_id=2&startingLetter=b HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:33] "GET /word-context?word=between&doc_id=2&startingLetter=b HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:33] "GET /word-context?word=between&doc_id=2&startingLetter=b HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:43] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:45] "GET /words?doc_id=2&startingLetter=c HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:47] "GET /word-context?word=conflict&doc_id=2&startingLetter=c HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:27:47] "GET /word-context?word=conflict&doc_id=2&startingLetter=c HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:00] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:01] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:01] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:02] "GET /word-context?word=against&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:02] "GET /word-context?word=against&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:15] "GET /words?doc_id=2&startingLetter=a&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:15] "GET /words?doc_id=2&startingLetter=a&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:17] "GET /word-context?word=an&doc_id=2&startingLetter=a&lineNumber=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:17] "GET /word-context?word=an&doc_id=2&startingLetter=a&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:20] "GET /words?doc_id=2&startingLetter=a&sentence=2&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:21] "GET /words?doc_id=2&startingLetter=a&sentence=2&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:22] "GET /words?doc_id=2&startingLetter=a&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:23] "GET /words?doc_id=2&startingLetter=a&sentence=1&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:24] "GET /word-context?word=an&doc_id=2&startingLetter=a&sentence=1&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2024 23:28:25] "GET /word-context?word=an&doc_id=2&startingLetter=a&sentence=1&lineNumber=1 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 15:01:27] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 15:01:30] "GET /words?doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 15:01:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 15:01:31] "GET /word-context?word=and&doc_id=2&startingLetter=a HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 15:44:08] "GET /words?doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 15:44:09] "GET /word-context?word=it&doc_id=2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 15:44:09] "GET /word-context?word=it&doc_id=2 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:05:03] "[31m[1mPOST /group HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:07:19] "[35m[1mPOST /group HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:08:58] "[35m[1mPOST /group HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:09:16] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:10:11] "[35m[1mPOST /group HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:15:02] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:15:53] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:16:34] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:17:19] "[31m[1mPOST /group HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:18:10] "[31m[1mPOST /group HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:18:29] "[31m[1mPOST /group HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:18:56] "[31m[1mPOST /group HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:19:20] "[31m[1mPOST /group HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:19:49] "[35m[1mPOST /group HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:20:19] "[35m[1mPOST /group HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:20:41] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:29:49] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:30:36] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:30:51] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:30:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:30:54] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 21:31:36] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 22:02:42] "[35m[1mPOST /group/add-word HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 22:02:50] "POST /group/add-word HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:02:17] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:02:27] "[35m[1mGET /group/words HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:02:49] "GET /group/words HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:03:00] "GET /group/words?group_id=3 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:14:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:14:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:14:30] "GET /group/words?group_id=3 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:15:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:15:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:15:57] "GET /group/words?group_id=3 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:16:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:16:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:16:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:16:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:16:29] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:16:29] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:16:32] "GET /group/words?group_id=3 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:18:47] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:18:47] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:39] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:39] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:39] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:39] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:48] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:48] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:54] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:19:54] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:15] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:15] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:19] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:19] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:26] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:26] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:43] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:43] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:20:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:04] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:04] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:09] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:09] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:14] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:14] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:29] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:29] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:32] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:32] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:47] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:47] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:48] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:48] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:58] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:21:58] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:05] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:05] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:08] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:08] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:11] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:11] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:17] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:17] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:22] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:22] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:24] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:43] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:43] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:54] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:54] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:58] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:22:58] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:16] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:16] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:19] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:19] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:25] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:28] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:28] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:28] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:28] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:37] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:49] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:23:49] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:30] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:30] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:30] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:30] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:41] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:41] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:53] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:28:53] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:12] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:12] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:13] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:13] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:17] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:17] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:19] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:19] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:28] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:28] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:55] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:55] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:29:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:02] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:02] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:12] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:12] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:15] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:15] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:17] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:17] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:39] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:39] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:30:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:31:11] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:31:12] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:31:31] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:31:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:15] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:16] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:51] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:51] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:59] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:32:59] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:33:03] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:33:03] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:33:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:33:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:33:48] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:33:48] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:02] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:03] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:11] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:11] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:45] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:45] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:48] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:48] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:34:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:01] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:01] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:13] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:13] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:16] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:16] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:35:37] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:37:36] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:37:36] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:37:43] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:37:43] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:37:50] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:37:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:00] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:00] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:04] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:04] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:06] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:06] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:07] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:07] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:10] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:10] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:47] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:47] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:50] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:51] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:51] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:57] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:38:57] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:00] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:00] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:07] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:07] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:20] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:20] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:26] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:26] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:29] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:29] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:40] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:40] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:53] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:39:53] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:23] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:31] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:35] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:35] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:38] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:38] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:41] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:41] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:44] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:44] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:45] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:40:45] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:41:30] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:41:30] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:41:42] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:41:42] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:41:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:41:46] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:50:13] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:50:13] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:50:16] "GET /group/words?group_id=3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:50:26] "OPTIONS /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:50:27] "POST /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:51:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:51:25] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:51:57] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:51:57] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:51:57] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:51:57] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:52:10] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:52:10] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:52:18] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:52:18] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:52:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:52:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:04] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:04] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:19] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:19] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:24] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:35] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:35] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:51] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:53:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:54:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:54:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:54:31] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:54:42] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:54:42] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:54:42] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:56:01] "OPTIONS /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:56:01] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:56:28] "OPTIONS /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:56:28] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:12] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:12] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:12] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:17] "OPTIONS /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:18] "POST /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:55] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:55] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:55] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:56] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:59] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:59] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:57:59] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:03] "OPTIONS /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:04] "POST /group HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:47] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:47] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:47] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:53] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:57] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:58:57] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:22] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:22] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:22] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:26] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:38] "OPTIONS /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:39] "POST /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:42] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [01/Feb/2024 23:59:48] "GET /group/words?group_id=5 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:08] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:08] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:08] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:09] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:10] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:10] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:18] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:18] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:18] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:33] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:33] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:33] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:38] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:38] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:00:38] "GET /group HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:01:03] "OPTIONS /group/add-word HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:01:03] "POST /group/add-word HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:01:06] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 00:01:08] "GET /group/words?group_id=5 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:19:50] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:19:51] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:19:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:19:52] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:20:42] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:20:42] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:20:45] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:20:45] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:20:51] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:20:51] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:20:51] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:21:04] "GET /documents HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:21:04] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:21:04] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:21:11] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:21:11] "GET /documents HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:21:11] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:22:01] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:22:02] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:22:06] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:22:06] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:22:21] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:22:22] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:24:08] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:24:08] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:29:58] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:30:03] "GET /group HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:34:02] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:34:03] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:44:52] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:44:53] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:44:59] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:44:59] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:48:29] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:48:30] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:36] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:36] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:39] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:40] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:50] "GET /documents HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:51] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:54] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:49:56] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:51:16] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:51:19] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:51:20] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:51:25] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:51:29] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:51:38] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:52:40] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:52:40] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:54:25] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:54:25] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:54:53] "GET /documents?filename=[object%20Object] HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 01:54:53] "GET /documents?filename=[object%20Object] HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:02:23] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:02:24] "GET /documents HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:14:44] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:14:58] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:15:38] "[35m[1mGET /documents?filename=aaa HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:16:44] "[35m[1mGET /documents?filename=aaa HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:18:53] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:19:20] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:19:20] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:19:40] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:19:42] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:19:45] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:19:45] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:22:22] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:22:22] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:22:23] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:22:23] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:22:51] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:22:59] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:23:09] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:23:32] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:23:32] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:23:32] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:23:32] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:23:53] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:23:53] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:24:02] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:24:02] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:24:04] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:24:05] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:24:13] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:24:14] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:24:18] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:25:26] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:25:26] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:25:27] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:25:27] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:25:33] "[35m[1mGET /documents?filename=test2 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:26:29] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:28:35] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:28:35] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:28:35] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:28:35] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:28:42] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:29:02] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:29:04] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:29:38] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:05] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:10] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:17] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:25] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:27] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:30] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:32] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:35] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:30:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:03] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:09] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:11] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:36] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:36] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:42] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:44] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:47] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:47] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:31:54] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:32:01] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:32:24] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:32:30] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:32:49] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:33:41] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:33:54] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:33:54] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:35:08] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:35:17] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:35:38] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 02:36:17] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:15:04] "[35m[1mPOST /expression HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:15:44] "POST /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:15:51] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:31] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:32] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:37] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:37] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:46] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:46] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:47] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:47] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:54] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:54] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:54] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:54] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:54] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:54] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:54] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:55] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:55] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:55] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:55] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:16:55] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:00] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:00] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:00] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:00] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:19] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:19] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:21] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:21] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:29] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:29] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:29] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:29] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:34] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:34] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:34] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:34] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:52] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:52] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:53] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:17:53] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:26] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:26] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:26] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:26] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:27] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:27] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:27] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:27] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:33] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:33] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:33] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:33] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:38] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:38] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:38] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:38] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:40] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:40] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:40] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:40] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:45] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:47] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:48] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:49] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:49] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:49] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:50] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:50] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:50] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /documents HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:51] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:52] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:52] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:52] "GET /documents HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:52] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:56] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:56] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:56] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:18:56] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:00] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:02] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:04] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:06] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:13] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:14] "GET /documents?filename=aaa HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:25] "GET /documents?filename=test HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:28] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:32] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:19:44] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:02] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:02] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:02] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:02] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:23] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:23] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:23] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:23] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:25] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:25] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:25] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:20:25] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:21:31] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:21:31] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:21:31] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:21:31] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:01] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:01] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:02] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:02] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:04] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:04] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:04] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:05] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:09] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:09] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:09] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:09] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:18] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:18] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:19] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:19] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:19] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:19] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:20] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:20] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:23] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:23] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:23] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:23] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:25] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:25] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:25] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:25] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:31] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:31] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:31] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:31] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:35] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:35] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:35] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:35] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:38] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:38] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:38] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:38] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:40] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:40] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:40] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:40] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:48] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:48] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:48] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:48] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:55] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:56] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:56] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:22:56] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\database.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:23:22] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:23:33] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:23:43] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:23:43] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:23:44] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:23:44] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:58] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:58] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:58] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:58] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /documents HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /documents HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:24:59] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:09] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:09] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:09] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:09] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:15] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:15] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:15] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:15] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:21] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:21] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:22] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:22] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:43] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:43] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:43] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:44] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:50] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:50] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:50] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:57] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:57] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:57] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:25:57] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:12] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:12] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:12] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:12] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:14] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:14] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:14] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:14] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:20] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:20] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:20] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:20] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:20] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:20] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:20] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:21] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:30] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:30] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:30] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:30] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:33] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:33] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:33] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:33] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:34] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:34] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:34] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:34] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:44] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:44] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:44] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:44] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:55] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:55] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:55] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:55] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:57] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:57] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:57] "GET /documents?filename=undefined HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:26:57] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:27:51] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:28:00] "GET /documents?filename=test2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:28:26] "OPTIONS /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:28:26] "[35m[1mPOST /expression HTTP/1.1[0m" 500 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:28:33] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:28:35] "GET /expression HTTP/1.1" 200 -
+INFO:root:MySQL Database connection successful
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:28:53] "GET /expression HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:30:16] "OPTIONS /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:30:16] "[35m[1mPOST /expression HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 976-848-571
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:30:55] "OPTIONS /expression HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Feb/2024 03:30:55] "POST /expression HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\daniel.n.ndelogakeh\\Videos\\Mywork\\Gavi\\Concordance-API\\api.py', reloading
+INFO:werkzeug: * Restarting with stat

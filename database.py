@@ -569,6 +569,208 @@ def get_surrounding_sentences(file_path, sentence_no, para_no):
     context_paragraph = ' '.join(context_sentences)
     
     return context_paragraph
+
+
+def save_group_to_db(connection,data):
+    result = False
+    try:
+        # Create a cursor object to interact with the database
+        cursor = connection.cursor()
+        
+        # Insert data into the table
+        sql = '''INSERT INTO wordgroups (name) VALUES (%s)'''
+        cursor.execute(sql, data)
+        
+        # Commit the transaction
+        connection.commit()
+        result = True
+        print("Group Saved Successfully !!!")
+        
+    except mysql.connector.Error as error:
+        print("Error while saving data to the MySQL database:", error)
+        
+    finally:
+        # Close the cursor and the connection
+        cursor.close()
+        connection.close()
+        
+    return result
+
+def save_word_to_group_in_db(connection,data):
+    result = False
+    try:
+        # Create a cursor object to interact with the database
+        cursor = connection.cursor()
+        
+        # Insert data into the table
+        sql = '''INSERT INTO wordgroupassociations (group_id,word) VALUES (%s,%s)'''
+        cursor.execute(sql, data)
+        
+        # Commit the transaction
+        connection.commit()
+        result = True
+        print("Word Saved To Group Successfully !!!")
+        
+    except mysql.connector.Error as error:
+        print("Error while saving data to the MySQL database:", error)
+        
+    finally:
+        # Close the cursor and the connection
+        cursor.close()
+        connection.close()
+        
+    return result
+
+def fetchAllGroups(connection):
+    arr = []
+    
+    try:
+        # Create a cursor object to interact with the database
+        cursor = connection.cursor()
+
+        # Execute a SELECT query to fetch all data from the table
+        cursor.execute("SELECT * FROM wordgroups where name is not null")
+
+        # Fetch all rows from the result set
+        rows = cursor.fetchall()
+
+        for row in rows:
+            arr.append({
+                "id": row[0],
+                "name": row[1]
+            })
+
+    except mysql.connector.Error as error:
+        print("Error while fetching data from the MySQL database:", error)
+
+    finally:
+        # Close the cursor and the connection
+        cursor.close()
+        connection.close()
+        
+    return arr
+
+
+# function to get all words in a group
+def fetchAllWordInGroups(connection,group_id):
+    arr = []
+    try:
+        # Create a cursor object to interact with the database
+        cursor = connection.cursor()
+
+        # Execute a SELECT query to fetch all data from the table
+        cursor.execute("SELECT * FROM wordgroupassociations where group_id = "+str(group_id))
+
+        # Fetch all rows from the result set
+        rows = cursor.fetchall()
+
+        for row in rows:
+            arr.append({
+                "word_id": row[0],
+                "group_id": row[1],
+                "words": row[2]
+            })
+
+    except mysql.connector.Error as error:
+        print("Error while fetching data from the MySQL database:", error)
+
+    finally:
+        # Close the cursor and the connection
+        cursor.close()
+        connection.close()
+        
+    return arr
+
+
+# save new expressions in db
+def save_expression_to_db(connection,data):
+    result = False
+    try:
+        # Create a cursor object to interact with the database
+        cursor = connection.cursor()
+        
+        # Insert data into the table
+        sql = '''INSERT INTO expressions (expression,words_expression) VALUES (%s,%s)'''
+        cursor.execute(sql, data)
+        
+        # Commit the transaction
+        connection.commit()
+        result = True
+        print("Expression Saved Successfully !!!")
+        
+    except mysql.connector.Error as error:
+        print("Error while saving data to the MySQL database:", error)
+        
+    finally:
+        # Close the cursor and the connection
+        cursor.close()
+        connection.close()
+        
+    return result
+
+
+# get all expressions
+def fetchAllExpressions(connection):
+    arr = []
+    
+    try:
+        # Create a cursor object to interact with the database
+        cursor = connection.cursor()
+
+        # Execute a SELECT query to fetch all data from the table
+        cursor.execute("SELECT * FROM expressions where expression is not null AND words_expression is not null")
+
+        # Fetch all rows from the result set
+        rows = cursor.fetchall()
+
+        for row in rows:
+            arr.append({
+                "id": row[0],
+                "name": row[1],
+                "words": row[2]
+            })
+
+    except mysql.connector.Error as error:
+        print("Error while fetching data from the MySQL database:", error)
+
+    finally:
+        # Close the cursor and the connection
+        cursor.close()
+        connection.close()
+        
+    return arr
+
+
+# get all expressions
+def fetchAllDocuments(connection):
+    arr = []
+    
+    try:
+        # Create a cursor object to interact with the database
+        cursor = connection.cursor()
+
+        # Execute a SELECT query to fetch all data from the table
+        cursor.execute("SELECT * FROM documents where name is not null")
+
+        # Fetch all rows from the result set
+        rows = cursor.fetchall()
+
+        for row in rows:
+            arr.append({
+                "id": row[0],
+                "name": row[1]
+            })
+
+    except mysql.connector.Error as error:
+        print("Error while fetching data from the MySQL database:", error)
+
+    finally:
+        # Close the cursor and the connection
+        cursor.close()
+        connection.close()
+        
+    return arr
+
 # Replace with your MySQL server information
 host = "localhost"
 user = "root"  # It's recommended to use a less privileged user in production
