@@ -4,8 +4,11 @@ import os
 import re
 import nltk
 import logging
+from collections import Counter
+import re
 nltk.download('punkt')
 from nltk.tokenize import word_tokenize, sent_tokenize
+from itertools import combinations
 # Global database name
 DATABASE_NAME = "concordance"
 logging.basicConfig(filename='database.log', level=logging.DEBUG)
@@ -770,6 +773,100 @@ def fetchAllDocuments(connection):
         connection.close()
         
     return arr
+
+def sort_dictionary(input_dict, by_key=False, reverse=False):
+    # Sort by keys
+    if by_key:
+        return dict(sorted(input_dict.items(), key=lambda item: item[0], reverse=reverse))
+    
+    # Sort by values
+    else:
+        return dict(sorted(input_dict.items(), key=lambda item: item[1], reverse=reverse))
+
+def get_most_frequent_words(file_path,num):
+    arr = []
+    try:
+        with open(file_path, 'r') as file:
+            # Read the entire content of the file
+            content = file.read()
+
+            # Split the content into words using regular expression
+            words = re.findall(r'\b\w+\b', content.lower())  # Convert to lowercase for case-insensitive counting
+
+            # Count the occurrences of each word
+            word_counts = Counter(words)
+
+            # Get the 10 most frequent words and their occurrences
+            most_common_words = word_counts.most_common(num)
+            for word, count in most_common_words:
+                arr.append({"word": word,"count": count})
+                
+            return arr
+
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return []
+ 
+# function to get number of characters and word in sentence and paragraph
+def count_words_and_characters(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            # Read the entire content of the file
+            content = file.read()
+
+            # Tokenize the content into sentences
+            sentences = nltk.sent_tokenize(content)
+
+            # Initialize lists to store results for sentences and paragraphs
+            sentence_results = []
+            paragraph_results = []
+            counter = 1
+            total_num_chars=0
+            total_num_words=0
+
+            for sentence in sentences:
+                # Count words and characters in each sentence
+                words = sentence.split()
+                num_words = len(words)
+                num_characters = sum(len(word) for word in words)
+                sentence_results.append({'sentence': counter, 'num_words': num_words, 'num_characters': num_characters})
+                counter += 1
+                total_num_chars += num_characters
+                total_num_words +=num_words
+
+            # Tokenize the content into paragraphs (assuming paragraphs are separated by empty lines)
+            paragraphs = content.split('\n\n')
+            
+            counter = 1
+
+            for paragraph in paragraphs:
+                # Count words and characters in each paragraph
+                words = paragraph.split()
+                num_words = len(words)
+                num_characters = sum(len(word) for word in words)
+                paragraph_results.append({'paragraph': counter, 'num_words': num_words, 'num_characters': num_characters})
+                counter += 1
+
+
+            total_letter_stats = {'total_num_chars': total_num_chars,'total_num_words': total_num_words}
+            
+            return sentence_results, paragraph_results,total_letter_stats
+
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return None   
+
+
+def sort_dictionary(input_dict, by_key=False, reverse=False):
+    # Sort by keys
+    if by_key:
+        return dict(sorted(input_dict.items(), key=lambda item: item[0], reverse=reverse))
+    
+    # Sort by values
+    else:
+        return dict(sorted(input_dict.items(), key=lambda item: item[1], reverse=reverse))
+
+
 
 # Replace with your MySQL server information
 host = "localhost"
