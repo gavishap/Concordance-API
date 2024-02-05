@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 import os
+import re
 import logging
 import database  # Import the database module
 DATABASE_NAME = "concordance"
@@ -21,7 +22,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 def read_file_content(file_path):
     arr = []
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r',encoding='utf-8') as file:
             for line in file:
                 words = line.split()
                 arr.extend(words)
@@ -35,7 +36,7 @@ def read_file_content(file_path):
 # get all expressions
 @app.route("/documents",methods=['GET'])
 def getAllDocuments():
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     res = []
     filename = request.args.get('filename')
     if filename:
@@ -74,7 +75,7 @@ def upload_document():
         logging.info(f"File saved at {file_path}")
 
         # Connect to the database
-        connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+        connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
         logging.info("Connected to the database")
 
         # Save document metadata and get document ID
@@ -97,7 +98,7 @@ def upload_document():
 @app.route('/words', methods=['GET'])
 def get_words():
     print("Received words request")
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     # Fetch filters from request arguments
     doc_id = request.args.get('doc_id')
     starting_letter = request.args.get('startingLetter')
@@ -126,7 +127,7 @@ def get_word_context():
         print("Word parameter is missing in request")
         return jsonify({"error": "Word parameter is required"}), 400
     # Replace this line in your Flask endpoints
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     doc_id = request.args.get('doc_id')
     paragraph = request.args.get('paragraph')
     sentence = request.args.get('sentence')
@@ -160,7 +161,7 @@ def get_word_context():
 def saveGroup():
     data = request.json
     
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     result = database.save_group_to_db(connection,(data['name'],))
     
     if result:
@@ -172,7 +173,7 @@ def saveGroup():
 def saveWordToGroup():
     data = request.json
     
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     result = database.save_word_to_group_in_db(connection,(data['group_id'],data['word']))
     
     if result:
@@ -183,7 +184,7 @@ def saveWordToGroup():
 
 @app.route("/group",methods=['GET'])
 def getAllGroups():
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     res = database.fetchAllGroups(connection)
     
     return jsonify(res), 200
@@ -191,7 +192,7 @@ def getAllGroups():
 # get all words of a particular group_id
 @app.route("/group/words",methods=['GET'])
 def getAllWordsGroups():
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     groupe_id = request.args.get('group_id')
     res = database.fetchAllWordInGroups(connection,groupe_id)
     
@@ -202,7 +203,7 @@ def getAllWordsGroups():
 @app.route('/expression', methods=['POST'])
 def saveExpression():
     data = request.json
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     result = database.save_expression_to_db(connection,(data['expression'],data['words_expression']))
     
     if result:
@@ -214,7 +215,7 @@ def saveExpression():
 # get all expressions
 @app.route("/expression",methods=['GET'])
 def getAllExpressions():
-    connection = database.create_server_connection("localhost", "root", "", DATABASE_NAME)
+    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
     res = database.fetchAllExpressions(connection)
     
     return jsonify(res), 200
@@ -237,12 +238,12 @@ def statistics():
     file_path = "./uploads/"+file_path+'.txt'
     
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r',encoding='utf-8') as file:
             # Read the entire content of the file
             content = file.read()
 
             # Count the number of paragraphs (assumed to be separated by empty lines)
-            paragraphs = content.split('\n\n')
+            paragraphs = re.split('\n+', content)
             num_paragraphs = len(paragraphs)
 
             # Count the number of sentences (assumed to be separated by '.', '!', or '?')

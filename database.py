@@ -257,7 +257,7 @@ def process_text(connection, document_id, file_path):
 
         # Increment sentence and paragraph numbers
         sentence_no += 1
-        if "\n\n" in sentence:
+        if re.search("\n+", sentence):
             para_no += 1
 
     print(f"Processed and stored words from document {document_id}")
@@ -538,9 +538,9 @@ def get_word_contexts(connection, word, doc_id=None, paragraph=None, sentence=No
 
 def get_surrounding_sentences(file_path, sentence_no, para_no):
     # Read the file and tokenize the text into paragraphs and then sentences
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         text = file.read()
-    paragraphs = text.split('\n\n')
+    paragraphs = re.split('\n+', text)
     
     # Ensure para_no is within the range of paragraphs
     para_no = max(0, min(para_no - 1, len(paragraphs) - 1))
@@ -780,31 +780,36 @@ def fetchAllDocuments(connection):
 def get_most_frequent_words(file_path,num):
     arr = []
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             # Read the entire content of the file
             content = file.read()
 
             # Split the content into words using regular expression
             words = re.findall(r'\b\w+\b', content.lower())  # Convert to lowercase for case-insensitive counting
 
-            # Count the occurrences of each word
-            word_counts = Counter(words)
+            # Define words to exclude from counting
+            exclude_words = {'the', 'in', 'and', 'of', 'to', 'a', 'us', 'was', 'by', 'with', 'were', 'that', 'as', 'for', 'on', 'is', 'it', 'from', 'at', 'an', 'be', 'which', 'this', 'also', 'are', 'has', 'had', 'have', 'been', 'or', 'not', 'but', 'its', 'their', 'they', 'them', 'we', 'our', 'you', 'your', 'he', 'she', 'his', 'her', 'him', 'i', 'me', 'my', 'mine', 'us', 'we', 'ours', 'ourselves', 'yours', 'yourself', 'yourselves', 'himself', 'herself', 'itself', 'themselves', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'who', 'whom', 'whose', 'which', 'where', 'when', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 'can', 'will', 'just', 'now', 'ain', 'are', 'could', 'has', 'is', 'should', 'was', 'would'}
 
-            # Get the 10 most frequent words and their occurrences
+            # Filter out the excluded words
+            filtered_words = [word for word in words if word not in exclude_words]
+
+            # Count the occurrences of each word
+            word_counts = Counter(filtered_words)
+
+            # Get the most frequent words and their occurrences
             most_common_words = word_counts.most_common(num)
             for word, count in most_common_words:
-                arr.append({"word": word,"count": count})
+                arr.append({"word": word, "count": count})
                 
             return arr
 
     except FileNotFoundError:
         print(f"File '{file_path}' not found.")
         return []
- 
 # function to get number of characters and word in sentence and paragraph
 def count_words_and_characters(file_path):
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             # Read the entire content of the file
             content = file.read()
 
@@ -829,7 +834,7 @@ def count_words_and_characters(file_path):
                 total_num_words +=num_words
 
             # Tokenize the content into paragraphs (assuming paragraphs are separated by empty lines)
-            paragraphs = content.split('\n\n')
+            paragraphs = re.split('\n+', content)
             
             counter = 1
 
