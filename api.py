@@ -296,17 +296,7 @@ def data_mining():
         return jsonify({'message': 'no file received'}),400
     
     file_path = "./uploads/"+file_path+'.txt'
-    min_support = 0.1
-    min_confidence = 0.5
-    association_rules = database.apriori(file_path, min_support, min_confidence)
-    arr = []
-    for rule in association_rules:
-        print(f"Rule: {rule[0]} => {rule[1]}, Confidence: {rule[2]}")
-        arr.append({
-            'rule_0': rule[0],
-            'rule_1': rule[1],
-            'confidence': rule[2]
-        })
+    arr = database.data_mining(file_path)
     
     return jsonify(arr), 200
         

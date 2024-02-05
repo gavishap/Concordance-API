@@ -29,7 +29,11 @@ This project is a Flask-based backend system designed for processing, storing, a
 
 2. **Install Dependencies**:
    ```bash
-   pip install flask mysql-connector-python nltk
+   pip install flask mysql-connector-python nltk pip install spacy
+   ```
+2.1 **Install Dependencies**:
+   ```bash
+   python -m spacy download en_core_web_sm
    ```
 
 3. **Set Up MySQL Database**:

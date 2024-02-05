@@ -6,9 +6,12 @@ import nltk
 import logging
 from collections import Counter
 import re
+import spacy
 nltk.download('punkt')
 from nltk.tokenize import word_tokenize, sent_tokenize
 from itertools import combinations
+nlp = spacy.load("en_core_web_sm")
+
 # Global database name
 DATABASE_NAME = "concordance"
 logging.basicConfig(filename='database.log', level=logging.DEBUG)
@@ -774,15 +777,6 @@ def fetchAllDocuments(connection):
         
     return arr
 
-def sort_dictionary(input_dict, by_key=False, reverse=False):
-    # Sort by keys
-    if by_key:
-        return dict(sorted(input_dict.items(), key=lambda item: item[0], reverse=reverse))
-    
-    # Sort by values
-    else:
-        return dict(sorted(input_dict.items(), key=lambda item: item[1], reverse=reverse))
-
 def get_most_frequent_words(file_path,num):
     arr = []
     try:
@@ -856,15 +850,27 @@ def count_words_and_characters(file_path):
         print(f"File '{file_path}' not found.")
         return None   
 
+# implement data mining
+def data_mining(file_path):
+    entities = []
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            text_content = file.read()
+            doc = nlp(text_content)
 
-def sort_dictionary(input_dict, by_key=False, reverse=False):
-    # Sort by keys
-    if by_key:
-        return dict(sorted(input_dict.items(), key=lambda item: item[0], reverse=reverse))
+            for ent in doc.ents:
+                entities.append({
+                    'text': ent.text,
+                    'type': ent.label_
+                })
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        logging.error(f"Error reading file: {e}")
+        return
     
-    # Sort by values
-    else:
-        return dict(sorted(input_dict.items(), key=lambda item: item[1], reverse=reverse))
+    # Process the text using spaCy
+    
+    return entities
 
 
 
