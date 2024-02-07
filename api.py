@@ -4,7 +4,9 @@ import os
 import re
 import logging
 import database  # Import the database module
-DATABASE_NAME = "concordance"
+import document
+import word as word_function
+DATABASE_NAME = "textretrivalsystem"
 app = Flask(__name__)
 from flask_cors import CORS
 
@@ -16,10 +18,10 @@ CORS(app)
 # Create the upload folder if it doesn't exist
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
-    logging.info("Created upload folder")
+    print("Created upload folder")
 
 # get all text from document
-def read_file_content(file_path):
+def file_content(file_path):
     arr = []
     try:
         with open(file_path, 'r',encoding='utf-8') as file:
@@ -34,23 +36,23 @@ def read_file_content(file_path):
 
     
 # get all expressions
-@app.route("/documents",methods=['GET'])
-def getAllDocuments():
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
+@app.route("/documents_list",methods=['GET'])
+def fetch_all_documents():
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
     res = []
     filename = request.args.get('filename')
     if filename:
         file_path = "./uploads/"+filename+".txt"
-        res = read_file_content(file_path)
+        res = file_content(file_path)
     
     else:
-        res = database.fetchAllDocuments(connection)
+        res = document.fetch_all_documents(connection)
     
     return jsonify(res), 200
 
-@app.route('/upload', methods=['POST'])
-def upload_document():
-    logging.info("Received upload request")
+@app.route('/upload_document', methods=['POST'])
+def document_upload():
+    print("Received upload request")
     if 'file' not in request.files:
         logging.error("No file part in request")
         return jsonify({"message": "No file part"}), 400
@@ -66,60 +68,39 @@ def upload_document():
         'date': request.form.get('date', 'Unknown'),
         'source': request.form.get('source', 'Unknown')
     }
-    logging.info(f"Metadata received: {metadata}")
+    print(f"Metadata received: {metadata}")
 
     if file:
         filename = secure_filename(file.filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
-        logging.info(f"File saved at {file_path}")
+        print(f"File saved at {file_path}")
 
         # Connect to the database
-        connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-        logging.info("Connected to the database")
+        connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+        print("Connected to the database")
 
         # Save document metadata and get document ID
-        doc_id = database.save_document_and_metadata(connection,file_path, metadata)
-        logging.info(f"Document ID received: {doc_id}")
+        doc_id = document.document_save_and_metadata(connection,file_path, metadata)
+        print(f"Document ID received: {doc_id}")
 
         # Process the document text and store word occurrences
-        database.process_text(connection, doc_id, file_path)
-        logging.info("Processed the document text and stored word occurrences")
+        database.text_processing(connection, doc_id, file_path)
+        print("Processed the document text and stored word occurrences")
 
         # Close the database connection
         connection.close()
-        logging.info("Closed the database connection")
+        print("Closed the database connection")
         
         return jsonify({"message": "File uploaded successfully", "document_id": doc_id}), 200
 
     logging.error("Unknown error occurred")
     return jsonify({"message": "Unknown error"}), 500
 
-@app.route('/words', methods=['GET'])
-def get_words():
-    print("Received words request")
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-    # Fetch filters from request arguments
-    doc_id = request.args.get('doc_id')
-    starting_letter = request.args.get('startingLetter')
-    paragraph = request.args.get('paragraph')
-    sentence = request.args.get('sentence')
-    line_number = request.args.get('lineNumber')
-    line_range = request.args.get('lineRange')
-    print(f"Filters received: doc_id={doc_id}, starting_letter={starting_letter}, paragraph={paragraph}, sentence={sentence}, line_number={line_number}, line_range={line_range}")
-    # Call a new function to get filtered words
-    words = database.get_filtered_words(connection, doc_id, starting_letter, paragraph, sentence, line_number, line_range)
-    print(f"Received words: {words}")
-    response = []
-    for word in words:
-        response.append(word[0])
-    return jsonify(response)
 
 
-
-
-@app.route('/word-context', methods=['GET'])
-def get_word_context():
+@app.route('/context', methods=['GET'])
+def fetch_word_context():
     print("Received word context request")
     word = request.args.get('word')
     print(f"Request Params: {request.args}")
@@ -127,7 +108,7 @@ def get_word_context():
         print("Word parameter is missing in request")
         return jsonify({"error": "Word parameter is required"}), 400
     # Replace this line in your Flask endpoints
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
     doc_id = request.args.get('doc_id')
     paragraph = request.args.get('paragraph')
     sentence = request.args.get('sentence')
@@ -135,7 +116,7 @@ def get_word_context():
     line_range = request.args.get('lineRange')
     print(f"Filters received: word={word}, doc_id={doc_id}, paragraph={paragraph}, sentence={sentence}, line_number={line_number}, line_range={line_range}")
     # Call a new function to get word context with filters
-    contexts = database.get_word_contexts(connection, word, doc_id, paragraph, sentence, line_number, line_range)
+    contexts = word_function.retrieve_word_context(connection, word, doc_id, paragraph, sentence, line_number, line_range)
     response = []
     for context in contexts:
         word, sentence_no, para_no, doc_name = context
@@ -157,24 +138,25 @@ def get_word_context():
 
 
 # 
-@app.route('/group', methods=['POST'])
-def saveGroup():
+@app.route('/word_group', methods=['POST'])
+def save_group():
     data = request.json
     
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-    result = database.save_group_to_db(connection,(data['name'],))
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+    result = word_function.word_group_creation(connection,(data['name'],))
     
     if result:
         return jsonify({"message": "Group saved successfully !!!"}), 200
     else:
         return jsonify({"message": "An error occured while saving group "}), 500
-    
-@app.route('/group/add-word', methods=['POST'])
-def saveWordToGroup():
+
+
+@app.route('/word_group/new_word', methods=['POST'])
+def save_word_to_group():
     data = request.json
     
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-    result = database.save_word_to_group_in_db(connection,(data['group_id'],data['word']))
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+    result = word_function.save_word_to_group_in_database(connection,(data['group_id'],data['word']))
     
     if result:
         return jsonify({"message": "Word saved to group successfully !!!"}), 200
@@ -182,29 +164,13 @@ def saveWordToGroup():
         return jsonify({"message": "An error occured while saving word to  group "}), 500
     
 
-@app.route("/group",methods=['GET'])
-def getAllGroups():
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-    res = database.fetchAllGroups(connection)
-    
-    return jsonify(res), 200
-
-# get all words of a particular group_id
-@app.route("/group/words",methods=['GET'])
-def getAllWordsGroups():
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-    groupe_id = request.args.get('group_id')
-    res = database.fetchAllWordInGroups(connection,groupe_id)
-    
-    return jsonify(res), 200
-
 
 # save expression to db
-@app.route('/expression', methods=['POST'])
-def saveExpression():
+@app.route('/decleration', methods=['POST'])
+def save_decleration():
     data = request.json
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-    result = database.save_expression_to_db(connection,(data['expression'],data['words_expression']))
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+    result = database.decleration_creation(connection,data['decleration'],data['words_decleration'])
     
     if result:
         return jsonify({"message": "Expression saved successfully !!!"}), 200
@@ -212,13 +178,26 @@ def saveExpression():
         return jsonify({"message": "An error occured while saving expression "}), 500
 
 
-# get all expressions
-@app.route("/expression",methods=['GET'])
-def getAllExpressions():
-    connection = database.create_server_connection("localhost", "root", "password", DATABASE_NAME)
-    res = database.fetchAllExpressions(connection)
-    
-    return jsonify(res), 200
+
+@app.route('/words', methods=['GET'])
+def fetch_words():
+    print("Received words request")
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+    # Fetch filters from request arguments
+    doc_id = request.args.get('doc_id')
+    starting_letter = request.args.get('startingLetter')
+    paragraph = request.args.get('paragraph')
+    sentence = request.args.get('sentence')
+    line_number = request.args.get('lineNumber')
+    line_range = request.args.get('lineRange')
+    print(f"Filters received: doc_id={doc_id}, starting_letter={starting_letter}, paragraph={paragraph}, sentence={sentence}, line_number={line_number}, line_range={line_range}")
+    # Call a new function to get filtered words
+    words = word_function.retrieve_filtered_words(connection, doc_id, starting_letter, paragraph, sentence, line_number, line_range)
+    print(f"Received words: {words}")
+    response = []
+    for word in words:
+        response.append(word[0])
+    return jsonify(response)
 
 
 # endpoint to generate statistics
@@ -257,9 +236,9 @@ def statistics():
             num_words = len(words)
             
             # get 10 most frequent words
-            get_most_frequent_words = database.get_most_frequent_words(file_path,frequency)
+            get_most_frequent_words = database.get_frequent_words(file_path,frequency)
             
-            sentence_results, paragraph_results,total_letter_stats = database.count_words_and_characters(file_path)
+            sentence_results, paragraph_results,total_letter_stats = word_function.count_words_and_characters(file_path)
             
 
             # Count the number of letters
@@ -290,19 +269,48 @@ def statistics():
 
 
 # data mining
-@app.route("/data-mining",methods=['GET'])
+@app.route("/data_mining",methods=['GET'])
 def data_mining():
     file_path = request.args.get('filename')
     if not file_path:
         return jsonify({'message': 'no file received'}),400
     
     file_path = "./uploads/"+file_path+'.txt'
-    arr = database.data_mining(file_path)
+    arr = database.mining(file_path)
     
     return jsonify(arr), 200
         
 
 
+# get all expressions
+@app.route("/declarations",methods=['GET'])
+def fetch_all_declarations():
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+    res = database.fetch_all_declarations(connection)
+    
+    return jsonify(res), 200
+
+
+
+@app.route("/word_group",methods=['GET'])
+def fetch_all_groups():
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+    res = word_function.fetch_all_groups(connection)
+    
+    return jsonify(res), 200
+
+# get all words of a particular group_id
+@app.route("/word_group/words_list",methods=['GET'])
+def fetch_all_words_groups():
+    connection = database.connection_to_database("localhost", "root", "", DATABASE_NAME)
+    groupe_id = request.args.get('group_id')
+    res = word_function.fetch_all_words_in_group(connection,groupe_id)
+    
+    return jsonify(res), 200
+
+
+
+
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=print)
     app.run(debug=True)

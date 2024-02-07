@@ -13,9 +13,169 @@ from itertools import combinations
 nlp = spacy.load("en_core_web_sm")
 
 # Global database name
-DATABASE_NAME = "concordance"
+DATABASE_NAME = "textretrivalsystem"  # Changed from "concordance"
 logging.basicConfig(filename='database.log', level=logging.DEBUG)
-def create_server_connection(host_name, user_name, user_password, db_name):
+
+def new_database(connection, db_name):
+
+    cursor = connection.cursor()
+    try:
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
+        print(f"Database '{db_name}' created successfully.")
+        logging.info(f"Database '{db_name}' created successfully.")
+        
+        cursor.execute(f"USE {db_name}")  # Switch to the new database
+
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS document_list (
+            doc_id INTEGER AUTO_INCREMENT PRIMARY KEY, 
+            name TEXT,
+            location TEXT,
+            author TEXT,
+            date DATE,
+            source TEXT  
+        );
+        """)
+        print("Table document_list created successfully")
+        logging.info("Table document_list created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS Words (
+        word_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+        word VARCHAR(255) UNIQUE
+        );
+        """)
+        print("Table Words created successfully")
+        logging.info("Table Words created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS occurrences (
+        doc_id INTEGER,
+        word_id INTEGER,
+        sentence_no INTEGER, 
+        para_no INTEGER,
+        word_position INTEGER,
+        PRIMARY KEY (doc_id, word_id, sentence_no, word_position),
+        FOREIGN KEY (doc_id) REFERENCES document_list(doc_id),
+        FOREIGN KEY (word_id) REFERENCES Words(word_id)
+        );
+        """)
+        print("Table occurrences created successfully")
+        logging.info("Table occurrences created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS groups_of_words (
+            group_id INTEGER PRIMARY KEY,
+            name TEXT 
+        );
+        """)
+        print("Table groups_of_words created successfully")
+        logging.info("Table groups_of_words created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS word_associationed (
+            word_id INTEGER,
+            group_id INTEGER,
+            PRIMARY KEY (word_id, group_id),
+            FOREIGN KEY (word_id) REFERENCES Words(word_id),
+            FOREIGN KEY (group_id) REFERENCES groups_of_words(group_id)
+        );
+        """)
+        print("Table word_associationed created successfully")
+        logging.info("Table word_associationed created successfully")
+
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS declerations (
+            decleration_id INTEGER PRIMARY KEY,
+            decleration TEXT
+        );
+        """)
+        print("Table declerations created successfully")
+        logging.info("Table declerations created successfully")
+    except Error as err:
+        print(f"Error: '{err}'")
+        logging.error(f"Error: '{err}'")
+
+    cursor = connection.cursor()
+    try:
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
+        print(f"Database '{db_name}' created successfully.")
+        logging.info(f"Database '{db_name}' created successfully.")
+        
+        cursor.execute(f"USE {db_name}")  # Switch to the new database
+
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS document_list (
+            doc_id INTEGER AUTO_INCREMENT PRIMARY KEY, 
+            name TEXT,
+            location TEXT,
+            author TEXT,
+            date DATE,
+            source TEXT  
+        );
+        """)
+        print("Table document_list created successfully")
+        logging.info("Table document_list created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS Words (
+        word_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+        word VARCHAR(255) UNIQUE
+        );
+        """)
+        print("Table Words created successfully")
+        logging.info("Table Words created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS occurrences (
+        doc_id INTEGER,
+        word_id INTEGER,
+        sentence_no INTEGER, 
+        para_no INTEGER,
+        word_position INTEGER,
+        PRIMARY KEY (doc_id, word_id, sentence_no, word_position),
+        FOREIGN KEY (doc_id) REFERENCES document_list(doc_id),
+        FOREIGN KEY (word_id) REFERENCES Words(word_id)
+        );
+        """)
+        print("Table occurrences created successfully")
+        logging.info("Table occurrences created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS groups_of_words (
+            group_id INTEGER PRIMARY KEY,
+            name TEXT 
+        );
+        """)
+        print("Table groups_of_words created successfully")
+        logging.info("Table groups_of_words created successfully")
+        
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS word_associationed (
+            word_id INTEGER,
+            group_id INTEGER,
+            PRIMARY KEY (word_id, group_id),
+            FOREIGN KEY (word_id) REFERENCES Words(word_id),
+            FOREIGN KEY (group_id) REFERENCES groups_of_words(group_id)
+        );
+        """)
+        print("Table word_associationed created successfully")
+        logging.info("Table word_associationed created successfully")
+
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS declerations (
+            decleration_id INTEGER PRIMARY KEY,
+            decleration TEXT
+        );
+        """)
+        print("Table declerations created successfully")
+        logging.info("Table declerations created successfully")
+    except Error as err:
+        print(f"Error: '{err}'")
+        logging.error(f"Error: '{err}'")
+
+
+def connection_to_database(host_name, user_name, user_password, db_name):
     connection = None
     try:
         connection = mysql.connector.connect(
@@ -32,96 +192,33 @@ def create_server_connection(host_name, user_name, user_password, db_name):
 
     return connection
 
-def create_database(connection, db_name):
-    cursor = connection.cursor()
+
+def query_reading(connection, query, params=None):
+    result = None
+    cursor_reading = None
     try:
-        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
-        print(f"Database '{db_name}' created successfully.")
-        logging.info(f"Database '{db_name}' created successfully.")
-        
-        cursor.execute(f"USE {db_name}")  # Switch to the new database
-
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Documents (
-            doc_id INTEGER AUTO_INCREMENT PRIMARY KEY, 
-            name TEXT,
-            location TEXT,
-            author TEXT,
-            date DATE,
-            source TEXT  
-        );
-        """)
-        print("Table Documents created successfully")
-        logging.info("Table Documents created successfully")
-        
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Words (
-        word_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-        word VARCHAR(255) UNIQUE
-        );
-        """)
-        print("Table Words created successfully")
-        logging.info("Table Words created successfully")
-        
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS WordOccurrences (
-        doc_id INTEGER,
-        word_id INTEGER,
-        sentence_no INTEGER, 
-        para_no INTEGER,
-        word_position INTEGER,
-        PRIMARY KEY (doc_id, word_id, sentence_no, word_position),
-        FOREIGN KEY (doc_id) REFERENCES Documents(doc_id),
-        FOREIGN KEY (word_id) REFERENCES Words(word_id)
-        );
-        """)
-        print("Table WordOccurrences created successfully")
-        logging.info("Table WordOccurrences created successfully")
-        
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS WordGroups (
-            group_id INTEGER PRIMARY KEY,
-            name TEXT 
-        );
-        """)
-        print("Table WordGroups created successfully")
-        logging.info("Table WordGroups created successfully")
-        
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS WordGroupAssociations (
-            word_id INTEGER,
-            group_id INTEGER,
-            PRIMARY KEY (word_id, group_id),
-            FOREIGN KEY (word_id) REFERENCES Words(word_id),
-            FOREIGN KEY (group_id) REFERENCES WordGroups(group_id)
-        );
-        """)
-        print("Table WordGroupAssociations created successfully")
-        logging.info("Table WordGroupAssociations created successfully")
-
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS Expressions (
-            expr_id INTEGER PRIMARY KEY,
-            expression TEXT
-        );
-        """)
-        print("Table Expressions created successfully")
-        logging.info("Table Expressions created successfully")
+        cursor_reading = connection.cursor()
+        if params:
+            cursor_reading.execute(query, params)
+        else:
+            cursor_reading.execute(query)
+        result = cursor_reading.fetchall()
     except Error as err:
         print(f"Error: '{err}'")
         logging.error(f"Error: '{err}'")
+    finally:
+        if cursor_reading:
+            cursor_reading.close()
+    return result
 
 
-
-
-def execute_query(connection, query, params=None):
+def query_execution(connection, query, params=None):
     cursor = None
     try:
         cursor = connection.cursor()
         cursor.execute(query, params or ())
         connection.commit()
         print("Query successful")
-        logging.info("Query successful")
     except Error as err:
         print(f"Error: '{err}'")
         logging.error(f"Error: '{err}'")
@@ -130,81 +227,7 @@ def execute_query(connection, query, params=None):
             cursor.close()
 
 
-def read_query(connection, query, params=None):
-    result = None
-    cursor = None
-    try:
-        cursor = connection.cursor()
-        if params:
-            cursor.execute(query, params)
-        else:
-            cursor.execute(query)
-        result = cursor.fetchall()
-    except Error as err:
-        print(f"Error: '{err}'")
-        logging.error(f"Error: '{err}'")
-    finally:
-        if cursor :
-            cursor.close()
-    return result
-
-
-
-
-
-
-
-def upload_document(connection, file_path, metadata):
-    # Check if the file exists
-    if not os.path.isfile(file_path):
-        print("File not found.")
-        logging.error("File not found.")
-        return
-    
-    # Read the file and extract text (assuming the file is not too large to fit in memory)
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            text_content = file.read()
-    except Exception as e:
-        print(f"Error reading file: {e}")
-        logging.error(f"Error reading file: {e}")
-        return
-    
-    # Prepare the metadata
-    name = metadata.get('name', 'Unknown')
-    location = metadata.get('location', 'Unknown')
-    author = metadata.get('author', 'Unknown')
-    date = metadata.get('date', '0000-00-00')  # Default date in case none is provided
-    source = metadata.get('source', 'Unknown')
-
-    # Prepare the SQL query to insert metadata
-    insert_query = """
-    INSERT INTO Documents (name, location, author, date, source)
-    VALUES (%s, %s, %s, %s, %s);
-    """
-    
-    # Execute the query to insert the document metadata
-    execute_query(connection, insert_query, (name, location, author, date, source))
-
-def save_document_and_metadata(connection,file_path, metadata):
-    # Create the database if it doesn't exist
-    create_database(connection, DATABASE_NAME)
-    try:
-        upload_document(connection, file_path, metadata)
-        doc_id_query = "SELECT LAST_INSERT_ID();"
-        doc_id_result = read_query(connection,doc_id_query)
-        doc_id = doc_id_result[0][0] if doc_id_result else None
-    except Exception as e:
-        print(f"Error saving document and metadata: {e}")
-        logging.error(f"Error saving document and metadata: {e}")
-        return None
-    return doc_id
-   
-
-
-
-
-def process_text(connection, document_id, file_path):
+def text_processing(connection, document_id, file_path):
     # Read the file and extract text
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -236,24 +259,23 @@ def process_text(connection, document_id, file_path):
                 VALUES (%s)
                 ON DUPLICATE KEY UPDATE word_id=LAST_INSERT_ID(word_id);
                 """
-                execute_query(connection,insert_word_query, (word,))
+                query_execution(connection, insert_word_query, (word,))
 
                 # Fetch the word_id of the inserted/selected word
-                word_id_result = read_query(connection,"SELECT LAST_INSERT_ID();", [])
+                word_id_result = query_reading(connection, "SELECT LAST_INSERT_ID();", [])
                 if word_id_result and len(word_id_result) > 0:
                     word_id = word_id_result[0][0]
 
                     # Insert the word occurrence
                     insert_occurrence_query = """
-                    INSERT INTO WordOccurrences (doc_id, word_id, sentence_no, para_no, word_position)
+                    INSERT INTO occurrences (doc_id, word_id, sentence_no, para_no, word_position)
                     VALUES (%s, %s, %s, %s, %s);
                     """
-                    execute_query(connection,insert_occurrence_query, (document_id, word_id, sentence_no, para_no, word_position))
+                    query_execution(connection, insert_occurrence_query, (document_id, word_id, sentence_no, para_no, word_position))
                 else:
                     # Handle the case where word_id is not successfully retrieved
                     print(f"Failed to retrieve word_id for word: {word}")
                     logging.error(f"Failed to retrieve word_id for word: {word}")
-
 
         # Increment sentence and paragraph numbers
         sentence_no += 1
@@ -264,370 +286,48 @@ def process_text(connection, document_id, file_path):
     logging.info(f"Processed and stored words from document {document_id}")
 
 
-def find_word_occurrences(connection, word):
-    # SQL query to find word occurrences along with context information
-    query = """
-    SELECT d.name, d.author, wo.sentence_no, wo.para_no, wo.chapter_no
-    FROM Words w
-    JOIN WordOccurrences wo ON w.word_id = wo.word_id
-    JOIN Documents d ON wo.doc_id = d.doc_id
-    WHERE w.word = %s;
-    """
-
-    # Execute the query
-    occurrences = read_query(connection, query, (word,))
-
-    if not occurrences:
-        print(f"No occurrences found for the word: {word}")
-        logging.info(f"No occurrences found for the word: {word}")
-        return []
-
-    # Print or return the list of occurrences
-    for occurrence in occurrences:
-        print(f"Document: {occurrence[0]}, Author: {occurrence[1]}, Sentence: {occurrence[2]}, Paragraph: {occurrence[3]}, Chapter: {occurrence[4]}")
-
-    return occurrences
-
-
-def create_word_group(connection, group_name):
-    # SQL query to insert a new word group
-    insert_query = """
-    INSERT INTO WordGroups (name)
-    VALUES (%s);
-    """
-
-    # Execute the query
-    try:
-        execute_query(connection, insert_query, (group_name,))
-        print(f"Word group '{group_name}' created successfully.")
-        logging.info(f"Word group '{group_name}' created successfully.")
-    except Error as err:
-        print(f"Error: '{err}'")
-        logging.error(f"Error: '{err}'")
-
-
-# Function to add words to a word group
-def add_word_to_group(connection, word, group_name):
-    # Find the word_id
-    word_id_query = "SELECT word_id FROM Words WHERE word = %s;"
-    word_id_result = read_query(connection, word_id_query, (word,))
-    word_id = word_id_result[0][0] if word_id_result else None
-
-    # Find the group_id
-    group_id_query = "SELECT group_id FROM WordGroups WHERE name = %s;"
-    group_id_result = read_query(connection, group_id_query, (group_name,))
-    group_id = group_id_result[0][0] if group_id_result else None
-
-    if word_id and group_id:
-        # Link the word to the group
-        insert_query = """
-        INSERT INTO WordGroupAssociations (word_id, group_id)
-        VALUES (%s, %s);
-        """
-        execute_query(connection, insert_query, (word_id, group_id))
-        print(f"Word '{word}' added to group '{group_name}' successfully.")
-        logging.info(f"Word '{word}' added to group '{group_name}' successfully.")
-    else:
-        print("Word or group not found.")
-        logging.error("Word or group not found.")
-
 # Function to create a new expression
-def create_expression(connection, expression):
-    insert_query = """
-    INSERT INTO Expressions (expression)
-    VALUES (%s);
-    """
-    execute_query(connection, insert_query, (expression,))
-    print(f"Expression '{expression}' created successfully.")
-    logging.info(f"Expression '{expression}' created successfully.")
+def decleration_creation(connection, decleration, words_decleration):
+    cursor = connection.cursor()
+    query_string = "INSERT INTO declerations (decleration, words_decleration) VALUES ('{}','{}')".format(decleration, words_decleration)
+    print(query_string)
+    cursor.execute(""+ query_string + "")
+    connection.commit()
+    print("Query successful")
+    print(f"Expression '{ decleration, words_decleration}' created successfully.")
+    logging.info(f"Expression '{ decleration, words_decleration}' created successfully.")
 
-def get_document_statistics(connection, document_id):
-    # Query to count the total number of word occurrences in the document
-    total_words_query = """
-    SELECT COUNT(*)
-    FROM WordOccurrences
-    WHERE doc_id = %s;
-    """
 
-    # Query to count the number of unique words in the document
-    unique_words_query = """
-    SELECT COUNT(DISTINCT word_id)
-    FROM WordOccurrences
-    WHERE doc_id = %s;
-    """
-
-    # Query to get the frequency of each word in the document
-    word_frequency_query = """
-    SELECT w.word, COUNT(*)
-    FROM WordOccurrences wo
-    JOIN Words w ON wo.word_id = w.word_id
-    WHERE wo.doc_id = %s
-    GROUP BY w.word
-    ORDER BY COUNT(*) DESC;
-    """
-
+def get_frequent_words(file_path, num):
+    frequent_words = []
     try:
-        # Execute the total words query
-        total_words = read_query(connection, total_words_query, (document_id,))[0][0]
+        with open(file_path, 'r', encoding='utf-8') as file:
+            # Read the entire content of the file
+            content = file.read()
 
-        # Execute the unique words query
-        unique_words = read_query(connection, unique_words_query, (document_id,))[0][0]
+            # Split the content into words using regular expression
+            words = re.findall(r'\b\w+\b', content.lower())  # Convert to lowercase for case-insensitive counting
 
-        # Execute the word frequency query
-        word_frequencies = read_query(connection, word_frequency_query, (document_id,))
+            # Define words to exclude from counting
+            exclude_words = { 'by', 'with', 'were', 'that', 'as', 'for', 'on', 'is', 'it', 'from', 'at', 'an', 'be', 'which', 'this', 'also', 'are', 'has', 'had', 'have', 'been', 'or', 'not', 'but', 'its', 'their', 'they', 'them', 'we', 'our','the', 'in', 'and', 'of', 'to', 'a', 'us', 'was' 'me', 'my', 'mine', 'us', 'you', 'your', 'he', 'she', 'his', 'her', 'him', 'i', 'we', 'ours', 'ourselves', 'yours', 'their', 'theirs', 'themselves', 'what', 'who', 'whom', 'whose', 'which', 'where', 'yourself', 'yourselves', 'himself', 'herself', 'itself', 'themselves', 'they', 'them', 'when', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'than', 'too', 'very', 'can', 'will', 'just', 'now', 'ain', 'are', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'could', 'has', 'is', 'should', 'was', 'would'}
 
-        # Print the statistics
-        print(f"Total words in document {document_id}: {total_words}")
-        logging.info(f"Total words in document {document_id}: {total_words}")
-        print(f"Unique words in document {document_id}: {unique_words}")
-        logging.info(f"Unique words in document {document_id}: {unique_words}")
-        print(f"Word frequencies in document {document_id}:")
-        logging.info(f"Word frequencies in document {document_id}:")
-        for word, count in word_frequencies:
-            print(f"    {word}: {count}")
-            logging.info(f"    {word}: {count}")
+            # Filter out the excluded words
+            filtered_words = [word for word in words if word not in exclude_words]
 
-        return total_words, unique_words, word_frequencies
+            # Count the occurrences of each word
+            word_counts = Counter(filtered_words)
 
-    except Error as err:
-        print(f"Error: '{err}'")
-        logging.error(f"Error: '{err}'")
-        return None
-
-def get_words(connection, doc_id=None):
-    query = "SELECT DISTINCT word FROM Words"
-    if doc_id:
-        query += " JOIN WordOccurrences ON Words.word_id = WordOccurrences.word_id WHERE WordOccurrences.doc_id = %s"
-        return read_query(connection, query, [doc_id])
-    else:
-        return read_query(connection, query)
-
-
-
-def get_word_context(connection, word, doc_id=None):
-    query = """
-    SELECT d.name, d.author, wo.sentence_no, wo.para_no
-    FROM Words
-    JOIN WordOccurrences wo ON Words.word_id = wo.word_id
-    JOIN Documents d ON wo.doc_id = d.doc_id
-    WHERE Words.word = %s
-    """
-    params = [word]
-    if doc_id:
-        query += " AND wo.doc_id = %s"
-        params.append(doc_id)
-    return read_query(connection, query, params)
-
-# Data Mining - simplified version of the Apriori algorithm to identify pairs of words that frequently occur together
-def find_frequent_word_pairs(connection, document_id, min_frequency):
-    # Fetch word occurrences for the document
-    query = """
-    SELECT w.word, wo.sentence_no
-    FROM WordOccurrences wo
-    JOIN Words w ON wo.word_id = w.word_id
-    WHERE wo.doc_id = %s
-    ORDER BY wo.sentence_no, wo.word_id;
-    """
-    word_occurrences = read_query(connection, query, (document_id,))
-
-    # Count pairs of words in the same sentence
-    word_pairs = {}
-    for i in range(len(word_occurrences) - 1):
-        current_word, current_sentence = word_occurrences[i]
-        next_word, next_sentence = word_occurrences[i + 1]
-
-        # Check if the next word is in the same sentence
-        if current_sentence == next_sentence:
-            pair = (current_word, next_word)
-            word_pairs[pair] = word_pairs.get(pair, 0) + 1
-
-    # Filter pairs by minimum frequency
-    frequent_pairs = {pair: count for pair, count in word_pairs.items() if count >= min_frequency}
-
-    # Return the frequent pairs
-    return frequent_pairs
-
-def get_filtered_words(connection, doc_id=None, starting_letter=None, paragraph=None, sentence=None, line_number=None, line_range=None):
-    print("get_filtered_words called with parameters:", locals())
-    query = """
-    SELECT DISTINCT Words.word
-    FROM Words
-    JOIN WordOccurrences ON Words.word_id = WordOccurrences.word_id
-    """
-    params = []
-
-    if doc_id:
-        query += " JOIN Documents ON WordOccurrences.doc_id = Documents.doc_id WHERE Documents.doc_id = %s"
-        params.append(doc_id)
-        print("Filtering by doc_id:", doc_id)
-
-    if starting_letter:
-        query += " AND Words.word LIKE %s"
-        params.append(starting_letter + '%')
-        print("Filtering by starting_letter:", starting_letter)
-
-    if paragraph:
-        query += " AND WordOccurrences.para_no = %s"
-        params.append(paragraph)
-        print("Filtering by paragraph:", paragraph)
-
-    if sentence:
-        query += " AND WordOccurrences.sentence_no = %s"
-        params.append(sentence)
-        print("Filtering by sentence:", sentence)
-
-    if line_number:
-        # Assuming line_number corresponds to a specific word_position
-        query += " AND WordOccurrences.word_position = %s"
-        params.append(line_number)
-        print("Filtering by line_number:", line_number)
-
-    if line_range:
-        # Assuming line_range is a string like '5-10'
-        start, end = line_range.split('-')
-        query += " AND WordOccurrences.word_position BETWEEN %s AND %s"
-        params.extend([start, end])
-        print("Filtering by line_range:", line_range)
-
-    print("Executing query:", query)
-    print("With parameters:", params)
-    return read_query(connection, query, params)
-
-def get_word_contexts(connection, word, doc_id=None, paragraph=None, sentence=None, line_number=None, line_range=None):
-    print("get_word_contexts called with parameters:", locals())
-    query = """
-    SELECT Words.word, WordOccurrences.sentence_no, WordOccurrences.para_no, Documents.name
-    FROM Words
-    JOIN WordOccurrences ON Words.word_id = WordOccurrences.word_id
-    JOIN Documents ON WordOccurrences.doc_id = Documents.doc_id
-    WHERE Words.word = %s
-    """
-    params = [word]
-    print("Filtering by word:", word)
-
-    if doc_id:
-        query += " AND Documents.doc_id = %s"
-        params.append(doc_id)
-        print("Filtering by doc_id:", doc_id)
-
-    if paragraph:
-        query += " AND WordOccurrences.para_no = %s"
-        params.append(paragraph)
-        print("Filtering by paragraph:", paragraph)
-
-    if sentence:
-        query += " AND WordOccurrences.sentence_no = %s"
-        params.append(sentence)
-        print("Filtering by sentence:", sentence)
-
-    if line_number:
-        query += " AND WordOccurrences.word_position = %s"
-        params.append(line_number)
-        print("Filtering by line_number:", line_number)
-
-    if line_range:
-        start, end = line_range.split('-')
-        query += " AND WordOccurrences.word_position BETWEEN %s AND %s"
-        params.extend([start, end])
-        print("Filtering by line_range:", line_range)
-
-    print("Executing query:", query)
-    print("With parameters:", params)
-    return read_query(connection, query, params)
-
-
-def get_surrounding_sentences(file_path, sentence_no, para_no):
-    # Read the file and tokenize the text into paragraphs and then sentences
-    with open(file_path, 'r', encoding='utf-8') as file:
-        text = file.read()
-    paragraphs = re.split('\n+', text)
-    
-    # Ensure para_no is within the range of paragraphs
-    para_no = max(0, min(para_no - 1, len(paragraphs) - 1))
-    
-    # Tokenize the selected paragraph into sentences
-    sentences = sent_tokenize(paragraphs[para_no])
-    
-    # Adjust sentence_no to be zero-based and within the range of sentences in the paragraph
-    sentence_no = max(0, min(sentence_no - 1, len(sentences) - 1))
-    
-    # Initialize context sentences list
-    context_sentences = []
-    
-    # If the target sentence is the first in its paragraph, include sentences from the previous paragraph
-    if sentence_no == 0 and para_no > 0:
-        previous_paragraph_sentences = sent_tokenize(paragraphs[para_no - 1])
-        context_sentences.extend(previous_paragraph_sentences[-2:])
-    
-    # Calculate the range of sentences to include from the current paragraph
-    start_index = max(0, sentence_no - 2)
-    end_index = min(len(sentences), sentence_no + 3)  # +3 to include the target, and up to 2 sentences after
-    
-    # Extend the context sentences list with sentences from the current paragraph
-    context_sentences.extend(sentences[start_index:end_index])
-    
-    # If the target sentence is the last in its paragraph, include sentences from the next paragraph
-    if sentence_no == len(sentences) - 1 and para_no < len(paragraphs) - 1:
-        next_paragraph_sentences = sent_tokenize(paragraphs[para_no + 1])
-        context_sentences.extend(next_paragraph_sentences[:2])
-    
-    # Join the context sentences to form the context paragraph
-    context_paragraph = ' '.join(context_sentences)
-    
-    return context_paragraph
-
-
-def save_group_to_db(connection,data):
-    result = False
-    try:
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
+            # Get the most frequent words and their occurrences
+            most_common_words = word_counts.most_common(num)
+            for word, count in most_common_words:
+                frequent_words.append({"word": word, "count": count})
+                
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
         
-        # Insert data into the table
-        sql = '''INSERT INTO wordgroups (name) VALUES (%s)'''
-        cursor.execute(sql, data)
-        
-        # Commit the transaction
-        connection.commit()
-        result = True
-        print("Group Saved Successfully !!!")
-        
-    except mysql.connector.Error as error:
-        print("Error while saving data to the MySQL database:", error)
-        
-    finally:
-        # Close the cursor and the connection
-        cursor.close()
-        connection.close()
-        
-    return result
+    return frequent_words
 
-def save_word_to_group_in_db(connection,data):
-    result = False
-    try:
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-        
-        # Insert data into the table
-        sql = '''INSERT INTO wordgroupassociations (group_id,word) VALUES (%s,%s)'''
-        cursor.execute(sql, data)
-        
-        # Commit the transaction
-        connection.commit()
-        result = True
-        print("Word Saved To Group Successfully !!!")
-        
-    except mysql.connector.Error as error:
-        print("Error while saving data to the MySQL database:", error)
-        
-    finally:
-        # Close the cursor and the connection
-        cursor.close()
-        connection.close()
-        
-    return result
-
-def fetchAllGroups(connection):
+def fetch_all_declarations(connection):
     arr = []
     
     try:
@@ -635,96 +335,7 @@ def fetchAllGroups(connection):
         cursor = connection.cursor()
 
         # Execute a SELECT query to fetch all data from the table
-        cursor.execute("SELECT * FROM wordgroups where name is not null")
-
-        # Fetch all rows from the result set
-        rows = cursor.fetchall()
-
-        for row in rows:
-            arr.append({
-                "id": row[0],
-                "name": row[1]
-            })
-
-    except mysql.connector.Error as error:
-        print("Error while fetching data from the MySQL database:", error)
-
-    finally:
-        # Close the cursor and the connection
-        cursor.close()
-        connection.close()
-        
-    return arr
-
-
-# function to get all words in a group
-def fetchAllWordInGroups(connection,group_id):
-    arr = []
-    try:
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-
-        # Execute a SELECT query to fetch all data from the table
-        cursor.execute("SELECT * FROM wordgroupassociations where group_id = "+str(group_id))
-
-        # Fetch all rows from the result set
-        rows = cursor.fetchall()
-
-        for row in rows:
-            arr.append({
-                "word_id": row[0],
-                "group_id": row[1],
-                "words": row[2]
-            })
-
-    except mysql.connector.Error as error:
-        print("Error while fetching data from the MySQL database:", error)
-
-    finally:
-        # Close the cursor and the connection
-        cursor.close()
-        connection.close()
-        
-    return arr
-
-
-# save new expressions in db
-def save_expression_to_db(connection,data):
-    result = False
-    try:
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-        
-        # Insert data into the table
-        sql = '''INSERT INTO expressions (expression,words_expression) VALUES (%s,%s)'''
-        cursor.execute(sql, data)
-        
-        # Commit the transaction
-        connection.commit()
-        result = True
-        print("Expression Saved Successfully !!!")
-        
-    except mysql.connector.Error as error:
-        print("Error while saving data to the MySQL database:", error)
-        
-    finally:
-        # Close the cursor and the connection
-        cursor.close()
-        connection.close()
-        
-    return result
-
-
-# get all expressions
-def fetchAllExpressions(connection):
-    arr = []
-    
-    try:
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-
-        # Execute a SELECT query to fetch all data from the table
-        cursor.execute("SELECT * FROM expressions where expression is not null AND words_expression is not null")
+        cursor.execute("SELECT * FROM declerations where decleration is not null AND words_decleration is not null")
 
         # Fetch all rows from the result set
         rows = cursor.fetchall()
@@ -747,124 +358,16 @@ def fetchAllExpressions(connection):
     return arr
 
 
-# get all expressions
-def fetchAllDocuments(connection):
-    arr = []
-    
-    try:
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-
-        # Execute a SELECT query to fetch all data from the table
-        cursor.execute("SELECT * FROM documents where name is not null")
-
-        # Fetch all rows from the result set
-        rows = cursor.fetchall()
-
-        for row in rows:
-            arr.append({
-                "id": row[0],
-                "name": row[1]
-            })
-
-    except mysql.connector.Error as error:
-        print("Error while fetching data from the MySQL database:", error)
-
-    finally:
-        # Close the cursor and the connection
-        cursor.close()
-        connection.close()
-        
-    return arr
-
-def get_most_frequent_words(file_path,num):
-    arr = []
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            # Read the entire content of the file
-            content = file.read()
-
-            # Split the content into words using regular expression
-            words = re.findall(r'\b\w+\b', content.lower())  # Convert to lowercase for case-insensitive counting
-
-            # Define words to exclude from counting
-            exclude_words = {'the', 'in', 'and', 'of', 'to', 'a', 'us', 'was', 'by', 'with', 'were', 'that', 'as', 'for', 'on', 'is', 'it', 'from', 'at', 'an', 'be', 'which', 'this', 'also', 'are', 'has', 'had', 'have', 'been', 'or', 'not', 'but', 'its', 'their', 'they', 'them', 'we', 'our', 'you', 'your', 'he', 'she', 'his', 'her', 'him', 'i', 'me', 'my', 'mine', 'us', 'we', 'ours', 'ourselves', 'yours', 'yourself', 'yourselves', 'himself', 'herself', 'itself', 'themselves', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'who', 'whom', 'whose', 'which', 'where', 'when', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 'can', 'will', 'just', 'now', 'ain', 'are', 'could', 'has', 'is', 'should', 'was', 'would'}
-
-            # Filter out the excluded words
-            filtered_words = [word for word in words if word not in exclude_words]
-
-            # Count the occurrences of each word
-            word_counts = Counter(filtered_words)
-
-            # Get the most frequent words and their occurrences
-            most_common_words = word_counts.most_common(num)
-            for word, count in most_common_words:
-                arr.append({"word": word, "count": count})
-                
-            return arr
-
-    except FileNotFoundError:
-        print(f"File '{file_path}' not found.")
-        return []
-# function to get number of characters and word in sentence and paragraph
-def count_words_and_characters(file_path):
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            # Read the entire content of the file
-            content = file.read()
-
-            # Tokenize the content into sentences
-            sentences = nltk.sent_tokenize(content)
-
-            # Initialize lists to store results for sentences and paragraphs
-            sentence_results = []
-            paragraph_results = []
-            counter = 1
-            total_num_chars=0
-            total_num_words=0
-
-            for sentence in sentences:
-                # Count words and characters in each sentence
-                words = sentence.split()
-                num_words = len(words)
-                num_characters = sum(len(word) for word in words)
-                sentence_results.append({'sentence': counter, 'num_words': num_words, 'num_characters': num_characters})
-                counter += 1
-                total_num_chars += num_characters
-                total_num_words +=num_words
-
-            # Tokenize the content into paragraphs (assuming paragraphs are separated by empty lines)
-            paragraphs = re.split('\n+', content)
-            
-            counter = 1
-
-            for paragraph in paragraphs:
-                # Count words and characters in each paragraph
-                words = paragraph.split()
-                num_words = len(words)
-                num_characters = sum(len(word) for word in words)
-                paragraph_results.append({'paragraph': counter, 'num_words': num_words, 'num_characters': num_characters})
-                counter += 1
-
-
-            total_letter_stats = {'total_num_chars': total_num_chars,'total_num_words': total_num_words}
-            
-            return sentence_results, paragraph_results,total_letter_stats
-
-    except FileNotFoundError:
-        print(f"File '{file_path}' not found.")
-        return None   
-
-# implement data mining
-def data_mining(file_path):
-    entities = []
+# Implement data mining
+def mining(file_path):
+    context = []
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             text_content = file.read()
             doc = nlp(text_content)
 
             for ent in doc.ents:
-                entities.append({
+                context.append({
                     'text': ent.text,
                     'type': ent.label_
                 })
@@ -875,12 +378,4 @@ def data_mining(file_path):
     
     # Process the text using spaCy
     
-    return entities
-
-
-
-# Replace with your MySQL server information
-host = "localhost"
-user = "root"  # It's recommended to use a less privileged user in production
-password = "password"  # Enter your MySQL root password here
-
+    return context
